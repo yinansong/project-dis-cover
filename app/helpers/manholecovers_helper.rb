@@ -1,0 +1,2 @@
+module ManholecoversHelper
+end

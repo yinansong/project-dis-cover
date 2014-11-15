@@ -1,0 +1,17 @@
+<%= form_for(@manholecover) do |f| %>
+  <% if @manholecover.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manholecover.errors.count, "error") %> prohibited this manholecover from being saved:</h2>
+
+      <ul>
+      <% @manholecover.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
