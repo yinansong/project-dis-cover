@@ -7,7 +7,7 @@ class CreateManholecovers < ActiveRecord::Migration
       t.string      :city,          :null => false
       t.integer     :year,          :null => false
       t.enum,       :color,         :null => false
-      t.array       :keywords,      :default => "[]"
+      t.array       :keywords,      :array => true, :default => []
       t.string      :notes,         :default => "Just another manhole cover."
       t.boolean     :featured,      :default => false
       t.belongs_to  :collector
