@@ -5,10 +5,105 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+  <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato|Hammersmith+One' rel='stylesheet' type='text/css'>
+
+  <!-- javascript and jquery -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script src="pace/pace.min.js"></script>
+    <link href="pace/style1.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".item").draggable(
+          {cursor: "move",
+          cursorAt: { top: 100, left: 100},
+          containment: "body"
+          }
+        );
+      });
+    </script>
+
+    <script type="text/javascript">
+    //for order after drag
+    $(document).ready(function() {
+      $('.item').draggable().on('mousedown', function() {
+        $('.item').not(this).css('z-index', '100');
+        $(this).css('z-index', '998');
+      });
+      $('button').click(function() {
+        $(this).closest('div.item').hide(0);
+        });
+    });
+    </script>
+
+</head>
+<body onload='setDivPos();'>
+  <!-- menu bar -->
+  <div id="menu">
+    <table id="menu_table">
+      <thead>
+        <th>
+          <div id="about">
+            <a id="about_tb_text" href="/about">ABOUT</a>
+          </div>
+        </th>
+        <th> | <th>
+        <th><a id="shuffle" href="/">SHUFFLE<a></th>
+        <th> | <th>
+        <th>
+          <div id="instagram">
+            <a id="blog_tb_text" href="/instagram">INSTAGRAM</a>
+          </div>
+        </th>
+      </thead>
+    </table>
+  </div>
+
+  <div id="menu_right">
+    <% if session[:access_token] %>
+      <a href="/logout">LOGOUT</a>
+    <% else %>
+      <a href="<%= @fb_login_url %>">LOGIN</a>
+    <% end %>
+  </div>
+
+
+  <%= yield %>
+
+  <script>
+      function setDivPos() {
+        var conW = $( window ).width() - 100,
+            conH = $( window ).height() - 100
+        $('#container').css( "width", conW );
+        $('#container').css( "height", conH );
+
+        $('.item').each(function(idx, el){
+          var x = Math.floor( Math.random() * $( window ).width() ) - 150;
+          var y = Math.floor( Math.random() * $( window ).height() ) - 100;
+          console.log(el);
+          el.style.left = x + 'px';
+          el.style.top = y + 'px';
+        });
+      }
+
+      $(".meta_box").hide();
+
+      $(".item").mouseover(function(event) {
+        var index = parseInt( event.target.id.match(/\d+/), 10 );
+        $("#item" + index).css
+        $(".meta_box").hide();
+        $("#meta_box" + index).show();
+      });
+
+      $(".item").mouseout(function(event) {
+        $(".meta_box").hide();
+      });
+    </script>
 
 </body>
 </html>

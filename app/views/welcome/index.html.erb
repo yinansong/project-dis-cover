@@ -1,1 +1,15 @@
-<h1>Hello welcome</h1>
+<span id="summary">
+  <%= @manholecovers.size %> manhole covers from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries currently&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+</span>
+
+<div id="container">
+  <% @manholecovers.each do |manholecover| %>
+          <a href="/manholecovers/<%= manholecover.id %>">
+            <img class="item" id="item<%= manholecover.id %>" src="<%= manholecover.manhole_url %>" alt="just another man hole cover">
+          </a>
+
+          <div class="meta_box" id="meta_box<%= manholecover.id %>">
+            <span class="meta_text"><%= manholecover.city %>, <%= manholecover.region %>, <%= manholecover.country %> | <%= manholecover.year %></span>
+          </div>
+  <% end %>
+</div>

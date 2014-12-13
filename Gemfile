@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
@@ -29,6 +28,11 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'httparty'
+gem 'actionview', '~> 4.1.5', require: "action_view"
+
+gem 'activesupport', '~> 4.1.6'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -41,6 +45,8 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'pry'
+  gem 'pry-rails'
+  gem 'shotgun'
   gem 'annotate'
   gem 'capybara'
   gem 'cucumber-rails', :require => false

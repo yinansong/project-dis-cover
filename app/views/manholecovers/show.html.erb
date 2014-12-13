@@ -1,4 +1,51 @@
-<p id="notice"><%= notice %></p>
+<section id="detail">
 
-<%= link_to 'Edit', edit_manholecover_path(@manholecover) %> |
-<%= link_to 'Back', manholecovers_path %>
+  <p id="notice"><%= notice %></p>
+
+  <a href="/"><img class="close" src="/assets/nonmanholes/close.png"></a>
+  <div class="major_image">
+      <img class="big_image" src="<%= @manholecover.manhole_url %>">
+      <div class="description">
+        <p class="meta_text">
+          Collector:&nbsp;<%= @manholecover.collector_id %>
+        </p><br>
+        <p class="meta_text">
+          Location:&nbsp;
+          <span class="meta_content">
+            <a href="/manholecovers/city/<%= @manholecover.city %>"><%= @manholecover.city %></a>,
+            <a href="/manholecovers/region/<%= @manholecover.region %>"><%= @manholecover.region %></a>,
+            <a href="/manholecovers/country/<%= @manholecover.country %>"><%= @manholecover.country %></a>
+          </span>
+        </p><br>
+        <p class="meta_text" id="meta_year">
+          Year:&nbsp;
+          <a href="/manholecovers/year/<%= @manholecover.year %>"><span class="meta_content"><%= @manholecover.year %></span></a>
+        </p>
+        <br>
+        <p class="meta_text" id="meta_info">Note:&nbsp;<span class="meta_content"><%= @manholecover.notes %></span></p><br>
+        <p class="meta_text">
+          Keywords:&nbsp;
+          <span class="meta_content">
+            <% @manholecover.keywords.each do |keyword|%>
+              <a href="/manholecovers/keyword/<%= keyword %>">#<%= keyword %>&nbsp;</a>
+            <% end %>
+          </span>
+        </p>
+        <br>
+        <br>
+        <br>
+        <%= link_to 'Edit', edit_manholecover_path(@manholecover) %>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/manholecovers/<%= @id %>/delete" class="delete">DELETE</a>
+      </div>
+  </div>
+  <div id="related_image_part">
+    <div id="divider"></div>
+    <div class="related_image">
+      <a href="/manholecovers/<%= @random_manhole_of_same_color1.id %>"><img class="small_image" src="<%= @random_manhole_of_same_color1.manhole_url %>"></a>
+      <a href="/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="small_image" src="<%= @random_manhole_of_same_color2.manhole_url %>"></a>
+      <a href="/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="small_image" src="<%= @random_manhole_of_same_color3.manhole_url %>"></a>
+    </div>
+  </div>
+</section>
+
+
+

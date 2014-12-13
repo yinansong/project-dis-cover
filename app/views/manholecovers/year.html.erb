@@ -1,0 +1,11 @@
+<section>
+  <h3>Manhole Covers Collected in the Year of <%= @year %></h3>
+  <% @certain_year_array.each do |manhole_entry| %>
+    <a href="/manholecovers/<%= manhole_entry["id"] %>">
+      <ul class="list-of-a-feature">
+        <li><img src="<%= manhole_entry.manhole_url %>"></li>
+      </ul>
+    </a>
+  <% end %>
+  <div class="clear"></div>
+</section>

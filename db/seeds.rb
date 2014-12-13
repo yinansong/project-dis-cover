@@ -25,4 +25,18 @@ mhcv01 = Manholecover.create(
   featured: true
 )
 
+mhcv02 = Manholecover.create(
+  manhole_url: "http://photos-a.ak.instagram.com/hphotos-ak-xaf1/10507830_783192385081928_661478825_n.jpg",
+  country: "USA",
+  region: "New York",
+  city: "New York",
+  year: "2014",
+  color: "green",
+  keywords: ["cross", "tape", "conedison"],
+  notes: "punk",
+  featured: true
+)
+
+
 mhcv01.collector_id = collector01.id
+mhcv02.collector_id = collector01.id

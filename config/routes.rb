@@ -12,6 +12,17 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  get 'about' => 'welcome#about'
+  get 'instagram' => 'welcome#instagram'
+
+  get 'manholecovers/city/:city' => 'manholecovers#city'
+  get 'manholecovers/region/:region' => 'manholecovers#region'
+  get 'manholecovers/country/:country' => 'manholecovers#country'
+
+  get 'manholecovers/year/:year' => 'manholecovers#year'
+
+  get 'manholecovers/keyword/:keyword' => 'manholecovers#keywords'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
