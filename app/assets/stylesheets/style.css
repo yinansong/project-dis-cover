@@ -106,6 +106,10 @@ section {
     text-align: left;
 }
 
+#shuffle {
+  cursor: pointer;
+}
+
 .box {
   left: 45%;
   top:20%;
