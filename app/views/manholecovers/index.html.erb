@@ -1,4 +1,4 @@
-<h1>Listing manholecovers</h1>
+<h1>All Manhole Covers</h1>
 
 <table>
   <thead>
@@ -10,6 +10,7 @@
   <tbody>
     <% @manholecovers.each do |manholecover| %>
       <tr>
+        <td><%= manholecover.country %></td>
         <td><%= link_to 'Show', manholecover %></td>
         <td><%= link_to 'Edit', edit_manholecover_path(manholecover) %></td>
         <td><%= link_to 'Destroy', manholecover, method: :delete, data: { confirm: 'Are you sure?' } %></td>
