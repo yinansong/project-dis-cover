@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :manholecovers
+  resources :manholecovers, only: [:show]
+  resources :collectors
 
   resources :collectors do
     resources :manholecovers
