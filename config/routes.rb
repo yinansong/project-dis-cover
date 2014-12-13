@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :manholecovers, only: [:show]
-  resources :collectors
+  resources :manholecovers
 
   resources :collectors do
     resources :manholecovers
@@ -19,12 +18,10 @@ Rails.application.routes.draw do
   get 'manholecovers/city/:city' => 'manholecovers#city'
   get 'manholecovers/region/:region' => 'manholecovers#region'
   get 'manholecovers/country/:country' => 'manholecovers#country'
-
   get 'manholecovers/year/:year' => 'manholecovers#year'
-
   get 'manholecovers/keyword/:keyword' => 'manholecovers#keywords'
-
   get 'manholecovers/new' => 'manholecovers#new'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

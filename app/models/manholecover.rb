@@ -1,3 +1,3 @@
 class Manholecover < ActiveRecord::Base
-  has_one :collector
+  belongs_to :collector
 end
