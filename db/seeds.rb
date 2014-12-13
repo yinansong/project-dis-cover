@@ -1,7 +1,14 @@
 collector01 = Collector.create(
-  headshot_url: "",
-  name: "yinan",
+  headshot_url: "https://s3.amazonaws.com/project-dis-cover/headshots/yinan.jpeg",
+  name: "yinansong",
   email: "yinan.e.song@gmail.com",
+  password_digest: "manholes4eva"
+)
+
+collector02 = Collector.create(
+  headshot_url: "https://s3.amazonaws.com/project-dis-cover/headshots/yinan.jpeg",
+  name: "evasong",
+  email: "eva.song.yinan@gmail.com",
   password_digest: "manholes4eva"
 )
 
@@ -41,7 +48,7 @@ mhcv03 = Manholecover.create(
   keywords: ["circular", "watermeter"],
   notes: "It's bigger than the normal tiny ones tho.",
   featured: true,
-  collector_id: 1
+  collector_id: 2
 )
 
 mhcv04 = Manholecover.create(
@@ -54,7 +61,7 @@ mhcv04 = Manholecover.create(
   keywords: ["sun", "circular"],
   notes: "Good morning, New Haven. Good morning, Chapel Street.",
   featured: true,
-  collector_id: 1
+  collector_id: 2
 )
 
 mhcv05 = Manholecover.create(
@@ -67,5 +74,5 @@ mhcv05 = Manholecover.create(
   keywords: ["SNET", "circular"],
   notes: "This could be a snowflake.",
   featured: true,
-  collector_id: 1
+  collector_id: 2
 )

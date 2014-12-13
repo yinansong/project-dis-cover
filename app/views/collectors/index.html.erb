@@ -1,14 +1,13 @@
-<h1>Listing collectors</h1>
-
-  <tbody>
+<section>
+  <h3>Who Are The Collectors?</h3>
+  <div id="collector-wall" style="display: inline-block;">
     <% @collectors.each do |collector| %>
-      <tr>
-        <td><%= link_to 'Show', collector %></td>
-        <td><%= link_to 'Edit', edit_collector_path(collector) %></td>
-        <td><%= link_to 'Destroy', collector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <a href="<% link_to 'Show', collector %>">
+        <div id="collector-box" style="display:block; float:left; padding:20px; text-align:center;">
+          <img src="<%= collector.headshot_url %>" class="collector-list-img" style="width:200px; border-radius:100px">
+        </div>
+      </a>
     <% end %>
-
-<br>
-
-<%= link_to 'New Collector', new_collector_path %>
+    <div class="clear"></div>
+  </div>
+<section>
