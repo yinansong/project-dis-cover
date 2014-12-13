@@ -1,24 +1,11 @@
-<h1>All Manhole Covers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @manholecovers.each do |manholecover| %>
-      <tr>
-        <td><%= manholecover.country %></td>
-        <td><%= link_to 'Show', manholecover %></td>
-        <td><%= link_to 'Edit', edit_manholecover_path(manholecover) %></td>
-        <td><%= link_to 'Destroy', manholecover, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Manholecover', new_manholecover_path %>
+<section>
+  <h3>Manhole Covers Collected by <%= @collector.name %></h3>
+  <% @manholecovers.each do |manhole_entry| %>
+    <a href="/collectors/<%= manhole_entry.collector_id%>/manholecovers/<%= manhole_entry["id"] %>">
+      <ul class="list-of-a-feature">
+        <li><img src="<%= manhole_entry.manhole_url %>"></li>
+      </ul>
+    </a>
+  <% end %>
+  <div class="clear"></div>
+</section>

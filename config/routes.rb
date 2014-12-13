@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   get 'manholecovers/country/:country' => 'manholecovers#country'
   get 'manholecovers/year/:year' => 'manholecovers#year'
   get 'manholecovers/keyword/:keyword' => 'manholecovers#keywords'
-  get 'manholecovers/new' => 'manholecovers#new'
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

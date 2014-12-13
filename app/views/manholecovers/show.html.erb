@@ -7,7 +7,10 @@
       <img class="big_image" src="<%= @manholecover.manhole_url %>">
       <div class="description">
         <p class="meta_text">
-          Collector:&nbsp;<%= @manholecover.collector_id %>
+          Collector:&nbsp;
+          <span class="meta_content">
+            <a href="/collectors/<%= @collector.id %>/manholecovers"><%= @collector.name %></a>
+          </span>
         </p><br>
         <p class="meta_text">
           Location:&nbsp;

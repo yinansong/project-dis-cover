@@ -1,31 +1,25 @@
 class ManholecoversController < ApplicationController
   before_action :set_manholecover, only: [:show, :edit, :update, :destroy]
 
-  # GET /manholecovers
-  # GET /manholecovers.json
+  # GET /collectors/1/manholecovers
+  # GET /collectors/1/manholecovers.json
   def index
-    @manholecovers = Manholecover.all
-
-    #for the data in the summary line
-    @cities = @manholecovers.map do |manhole_entry|
-      manhole_entry["city"].downcase
-    end
-    @number_of_cities_uniq = @cities.uniq.size
-    @countries = @manholecovers.map do |manhole_entry|
-      manhole_entry["country"]
-    end
-    @number_of_countries_uniq = @countries.uniq.size
+    @collector = ::Collector.find_by(id: params[:collector_id])
+    @manholecovers = @collector.manholecovers
   end
 
-  # GET /manholecovers/new
+  # GET /collectors/1/manholecovers/new
   def new
-    @manholecover = Manholecover.new
+    @collector = ::Collector.find_by(id: params[:collector_id])
+    @manholecover = @user.manholecovers.new
+    # something is wrong with the above line
   end
 
   # GET /manholecovers/1
   # GET /manholecovers/1.json
   def show
-    @manholecover = Manholecover.find(params[:id])
+    @collector = ::Collector.find(@manholecover.collector_id)
+    @manholecover = @collector.manholecovers.find(params[:id])
 
     # get random manhole covers of the same color
     color = @manholecover.color
@@ -37,10 +31,10 @@ class ManholecoversController < ApplicationController
     @random_manhole_of_same_color3 = manholes_of_same_color.sample
   end
 
-
-  # GET /manholecovers/1/edit
+  # GET /collectors/1/manholecovers/1/edit
   def edit
-    @manholecover = Manholecover.find(params[:id])
+    @collector = ::Collector.find_by(id: params[:collector_id])
+    @manholecover = @collector.items.find(params[:id])
   end
 
   # GET /manholecovers/city/:city

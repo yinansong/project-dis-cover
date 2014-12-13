@@ -1,6 +1,17 @@
 class WelcomeController < ApplicationController
   def index
     @manholecovers = Manholecover.all
+    @sample_mhcv = @manholecovers.sample(20)
+
+    #for the data in the summary line
+    @cities = @manholecovers.map do |manhole_entry|
+      manhole_entry["city"].downcase
+    end
+    @number_of_cities_uniq = @cities.uniq.size
+    @countries = @manholecovers.map do |manhole_entry|
+      manhole_entry["country"]
+    end
+    @number_of_countries_uniq = @countries.uniq.size
   end
 
   def instagram
