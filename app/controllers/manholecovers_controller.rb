@@ -4,7 +4,6 @@ class ManholecoversController < ApplicationController
   # GET /manholecovers
   # GET /manholecovers.json
   def index
-    binding.pry
     @manholecovers = Manholecover.all
 
     #for the data in the summary line
