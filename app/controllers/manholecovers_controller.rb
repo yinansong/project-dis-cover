@@ -18,6 +18,11 @@ class ManholecoversController < ApplicationController
     @number_of_countries_uniq = @countries.uniq.size
   end
 
+  # GET /manholecovers/new
+  def new
+    @manholecover = Manholecover.new
+  end
+
   # GET /manholecovers/1
   # GET /manholecovers/1.json
   def show
@@ -33,13 +38,10 @@ class ManholecoversController < ApplicationController
     @random_manhole_of_same_color3 = manholes_of_same_color.sample
   end
 
-  # GET /manholecovers/new
-  def new
-    @manholecover = Manholecover.new
-  end
 
   # GET /manholecovers/1/edit
   def edit
+    @manholecover = Manholecover.find(params[:id])
   end
 
   # GET /manholecovers/city/:city
@@ -106,9 +108,10 @@ class ManholecoversController < ApplicationController
   # PATCH/PUT /manholecovers/1
   # PATCH/PUT /manholecovers/1.json
   def update
+    @manholecover = Manholecover.find(params[:id])
     respond_to do |format|
       if @manholecover.update(manholecover_params)
-        format.html { redirect_to @manholecover, notice: 'Manholecover was successfully updated.' }
+        format.html { redirect_to @manholecover, notice: 'Manhole Cover was successfully updated.' }
         format.json { render :show, status: :ok, location: @manholecover }
       else
         format.html { render :edit }
@@ -120,6 +123,7 @@ class ManholecoversController < ApplicationController
   # DELETE /manholecovers/1
   # DELETE /manholecovers/1.json
   def destroy
+    @manholecover = Manholecover.find(params[:id])
     @manholecover.destroy
     respond_to do |format|
       format.html { redirect_to manholecovers_url, notice: 'Manholecover was successfully destroyed.' }
@@ -135,6 +139,6 @@ class ManholecoversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manholecover_params
-      params[:manholecover]
+      params.require(:manholecover).permit(:id, :manhole_url, :country, :region, :city, :year, :color, :keywords, :notes, :featured, :collector_id, :_method)
     end
 end

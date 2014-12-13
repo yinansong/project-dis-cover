@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 collector01 = Collector.create(
   headshot_url: "",
   name: "yinan",
@@ -22,7 +14,8 @@ mhcv01 = Manholecover.create(
   color: "black",
   keywords: ["animal", "frog", "traditional"],
   notes: "wow so fun!",
-  featured: true
+  featured: true,
+  collector_id: 1
 )
 
 mhcv02 = Manholecover.create(
@@ -34,9 +27,6 @@ mhcv02 = Manholecover.create(
   color: "green",
   keywords: ["cross", "tape", "conedison"],
   notes: "punk",
-  featured: true
+  featured: true,
+  collector_id: 1
 )
-
-
-mhcv01.collector_id = collector01.id
-mhcv02.collector_id = collector01.id

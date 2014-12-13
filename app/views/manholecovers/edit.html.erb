@@ -1,6 +1,9 @@
-<h1>Editing manholecover</h1>
+<section id="edit_an_entry">
 
-<%= render 'form' %>
+    <a href="/manholecovers/<%= @manholecover.id %>"><img class="close" src="/assets/nonmanholes/close.png"></a>
 
-<%= link_to 'Show', @manholecover %> |
-<%= link_to 'Back', manholecovers_path %>
+    <h3 style="padding-bottom: 30px;">Update a Manhole Cover Entry?</h3>
+
+    <%= render 'form' %>
+
+</section>
