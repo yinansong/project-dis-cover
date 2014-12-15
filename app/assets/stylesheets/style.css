@@ -348,3 +348,68 @@ ul.list-of-a-feature img {
 .clear {
   clear: both;
 }
+
+/*collector wall starts*/
+
+  #collector-wall {
+    display: inline-block;
+  }
+
+  #collector-box {
+    display: block;
+    float: left;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .collector-list-img {
+    width: 200px;
+    border-radius: 100px;
+  }
+
+  .collector-list-img:hover {
+    -ms-transform:scale(1.2); /* IE 9 */
+    -moz-transform:scale(1.2); /* Firefox */
+    -webkit-transform:scale(1.2); /* Safari and Chrome */
+    -o-transform:scale(1.2); /* Opera */
+    transform: scale(1.05);
+    -ms-transform-origin: center;
+    -moz-transform-origin: center;
+    -webkit-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
+  }
+
+/*collector wall ends*/
+
+/* collector profile page starts here*/
+
+.profile-headshot {
+  width: 200px;
+  border-radius: 100px;
+  margin: 0 70px 0 10px;
+}
+
+/* collector profile page ends here*/
+
+/* instagram page starts here*/
+
+  .ig-image {
+    width: 200px;
+    padding: 10px;
+  }
+
+  .ig-image:hover {
+    -ms-transform:scale(1.2); /* IE 9 */
+    -moz-transform:scale(1.2); /* Firefox */
+    -webkit-transform:scale(1.2); /* Safari and Chrome */
+    -o-transform:scale(1.2); /* Opera */
+    transform: scale(1.05);
+    -ms-transform-origin: center;
+    -moz-transform-origin: center;
+    -webkit-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
+  }
+
+/* instagram page ends here*/

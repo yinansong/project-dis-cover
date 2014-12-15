@@ -1,6 +1,13 @@
 <section>
-  <p id="notice"><%= notice %></p>
-
-  <%= link_to 'Edit', edit_collector_path(@collector) %> |
-  <%= link_to 'Back', collectors_path %>
+  <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
+  <div class="collector-detail" style="display: inline-block; float:left;">
+    <p id="notice"><%= notice %></p>
+    <img src="<%= @collector.headshot_url %>" class="profile-headshot" style="display: inline-block; float:left;">
+    <div class="collector-info" style="display:block; float:left;">
+      <h3 style="margin-top:-40px;"><%= @collector.name %></h3>
+      <%= link_to 'Edit', edit_collector_path(@collector) %> |
+      <%= link_to 'Back', collectors_path %>
+    </div>
+  </div>
+  <div class="clear"></div>
 </section>

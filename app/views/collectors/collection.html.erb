@@ -1,0 +1,33 @@
+<section>
+
+  <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="collection-box" style="top:70px">
+    <div class="collector-detail" style="width: 100%;">
+      <img src="<%= @collector.headshot_url %>" class="profile-headshot" style="display: inline-block; float:left;">
+      <div class="collector-info" style="display:block;">
+        <h3 style="margin-top:-40px;"><%= @collector.name %></h3>
+        <span style="font-size:50px; float:left;"><%= @no_mhcv %>&nbsp;
+        </span><span>Manhole Covers</span><br>
+        <span><%= @no_cities %> cities</span><br>
+        <span><%= @no_countries %> countries</span>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <hr noshade style="margin: 0; margin-top: 50px; height: 2px; background-color: black; border: 0;">
+    <div class="collection" style="padding-top: 50px;">
+      <% @manholecovers.each_with_index do |manhole_entry| %>
+        <a href="/collectors/<%= manhole_entry.collector_id %>/manholecovers/<%= manhole_entry.id %>">
+          <ul class="list-of-a-feature">
+            <li><img src="<%= manhole_entry.manhole_url %>"></li>
+          </ul>
+        </a>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+</section>

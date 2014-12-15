@@ -4,7 +4,7 @@
 
 <div id="container">
   <% @sample_mhcv.each do |manholecover| %>
-          <a href="/manholecovers/<%= manholecover.id %>">
+          <a href="/collectors/<%= manholecover.collector_id %>/manholecovers/<%= manholecover.id %>">
             <img class="item" id="item<%= manholecover.id %>" src="<%= manholecover.manhole_url %>" alt="just another man hole cover">
           </a>
 

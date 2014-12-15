@@ -1,6 +1,21 @@
 class CollectorsController < ApplicationController
   before_action :set_collector, only: [:show, :edit, :update, :destroy]
 
+  # GET /collectors/1/collection
+  def collection
+    @collector = ::Collector.find_by(id: params[:id])
+    @manholecovers = @collector.manholecovers
+    @no_mhcv = @manholecovers.size
+    @cities = @manholecovers.map do |manholecover|
+      manholecover.city
+    end
+    @no_cities = @cities.uniq.size
+    @countries = @manholecovers.map do |manholecover|
+      manholecover.country
+    end
+    @no_countries = @countries.uniq.size
+  end
+
   # GET /collectors
   # GET /collectors.json
   def index
@@ -11,6 +26,7 @@ class CollectorsController < ApplicationController
   # GET /collectors/1.json
   def show
     @collector = ::Collector.find(params[:id])
+    @mhcv_number = @collector.manholecovers.size
   end
 
   # GET /collectors/new

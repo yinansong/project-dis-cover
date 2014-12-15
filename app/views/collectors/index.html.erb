@@ -1,10 +1,11 @@
 <section>
+  <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
   <h3>Who Are The Collectors?</h3>
-  <div id="collector-wall" style="display: inline-block;">
+  <div id="collector-wall">
     <% @collectors.each do |collector| %>
       <a href="<% link_to 'Show', collector %>">
-        <div id="collector-box" style="display:block; float:left; padding:20px; text-align:center;">
-          <img src="<%= collector.headshot_url %>" class="collector-list-img" style="width:200px; border-radius:100px">
+        <div id="collector-box">
+          <img class="collector-list-img" src="<%= collector.headshot_url %>">
         </div>
       </a>
     <% end %>

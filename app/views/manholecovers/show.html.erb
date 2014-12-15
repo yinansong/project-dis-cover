@@ -2,14 +2,15 @@
 
   <p id="notice"><%= notice %></p>
 
-  <a href="/"><img class="close" src="/assets/nonmanholes/close.png"></a>
+  <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
+
   <div class="major_image">
       <img class="big_image" src="<%= @manholecover.manhole_url %>">
       <div class="description">
         <p class="meta_text">
           Collector:&nbsp;
           <span class="meta_content">
-            <a href="/collectors/<%= @collector.id %>/manholecovers"><%= @collector.name %></a>
+            <a href="/collectors/<%= @collector.id %>/collection"><%= @collector.name %></a>
           </span>
         </p><br>
         <p class="meta_text">
@@ -43,9 +44,9 @@
   <div id="related_image_part">
     <div id="divider"></div>
     <div class="related_image">
-      <a href="/manholecovers/<%= @random_manhole_of_same_color1.id %>"><img class="small_image" src="<%= @random_manhole_of_same_color1.manhole_url %>"></a>
-      <a href="/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="small_image" src="<%= @random_manhole_of_same_color2.manhole_url %>"></a>
-      <a href="/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="small_image" src="<%= @random_manhole_of_same_color3.manhole_url %>"></a>
+      <a href="/collectors/<%= @random_manhole_of_same_color1.collector_id %>/manholecovers/<%= @random_manhole_of_same_color1.id %>"><img class="small_image" src="<%= @random_manhole_of_same_color1.manhole_url %>"></a>
+      <a href="/collectors/<%= @random_manhole_of_same_color2.collector_id %>/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="small_image" src="<%= @random_manhole_of_same_color2.manhole_url %>"></a>
+      <a href="/collectors/<%= @random_manhole_of_same_color3.collector_id %>/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="small_image" src="<%= @random_manhole_of_same_color3.manhole_url %>"></a>
     </div>
   </div>
 </section>
