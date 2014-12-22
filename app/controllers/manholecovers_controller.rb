@@ -11,7 +11,7 @@ class ManholecoversController < ApplicationController
   # GET /collectors/1/manholecovers/new
   def new
     @collector = ::Collector.find_by(id: params[:collector_id])
-    @manholecover = @user.manholecovers.new
+    @manholecover = @collector.manholecovers.new
     # something is wrong with the above line
   end
 

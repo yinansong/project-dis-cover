@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get 'collectors/:id/collection' => 'collectors#collection'
 
+  get 'signup' => 'collectors#new'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

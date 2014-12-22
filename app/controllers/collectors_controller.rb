@@ -86,6 +86,6 @@ class CollectorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def collector_params
-      params[:collector]
+      params.require(:collector).permit(:headshot_url, :name, :email, :password_digest)
     end
 end

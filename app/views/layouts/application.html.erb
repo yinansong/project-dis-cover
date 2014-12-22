@@ -70,7 +70,7 @@
           </div>
         </th>
         <th> | <th>
-        <th><a id="shuffle" onClick="window.location.href=window.location.href">SHUFFLE<a></th>
+        <th><%= link_to 'SHUFFLE', root_path, id: "shuffle" %></th>
         <th> | <th>
         <th>
           <div id="instagram">
@@ -82,11 +82,13 @@
   </div>
 
   <div id="menu_right">
-    <% if session[:access_token] %>
-      <a href="/logout">LOGOUT</a>
-    <% else %>
-      <a href="<%= @fb_login_url %>">LOGIN</a>
-    <% end %>
+    <table>
+      <thead>
+        <th><%= link_to 'SIGNUP', signup_path %></th>
+        <th>|</th>
+        <th>LOGIN</th>
+      </thead>
+    </table>
   </div>
 
 
