@@ -2,8 +2,6 @@
 <html>
 <head>
   <title>ProjectDisCover</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
   <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
@@ -22,6 +20,8 @@
   <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
 
   <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Lato|Hammersmith+One' rel='stylesheet' type='text/css'>
@@ -95,6 +95,8 @@
         $(".meta_box").hide();
       });
     </script>
+
+  <%= javascript_include_tag 'application' %>
 
 </body>
 </html>
