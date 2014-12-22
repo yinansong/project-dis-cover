@@ -3,7 +3,7 @@
   <h3>Who Are The Collectors?</h3>
   <div id="collector-wall">
     <% @collectors.each do |collector| %>
-      <a href="<% link_to 'Show', collector %>">
+      <a href="/collectors/<%= collector.id %>">
         <div id="collector-box">
           <img class="collector-list-img" src="<%= collector.headshot_url %>">
         </div>
