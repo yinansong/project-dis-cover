@@ -7,12 +7,13 @@
   <div class="collection-box" style="top:70px">
     <div class="collector-detail" style="width: 100%;">
       <img src="<%= @collector.headshot_url %>" class="profile-headshot" style="display: inline-block; float:left;">
-      <div class="collector-info" style="display:block;">
-        <h3 style="margin-top:-40px;"><%= @collector.name %></h3>
-        <span style="font-size:50px; float:left;"><%= @no_mhcv %>&nbsp;
-        </span><span>Manhole Covers</span><br>
-        <span><%= @no_cities %> cities</span><br>
-        <span><%= @no_countries %> countries</span>
+      <div class="collector-info" style="display:block; font-family: 'Lato', sans-serif;">
+        <h3 style="margin-top:-40px; font-family: 'Hammersmith One', sans-serif"><%= @collector.name %></h3>
+        <p class="collector-info-entry">Has collected <%= @no_mhcv %> manhole covers in total</p><br>
+        <p class="collector-info-entry">from <%= @no_cities %> cities, <%= @no_countries %> countries</p><br>
+        <p class="collector-info-entry">Most are from xxx country</p><br>
+        <br>
+        <p class="collector-info-entry">Collecting since <%= @collector.created_at.strftime("%B %Y") %></p>
       </div>
       <div class="clear"></div>
     </div>
