@@ -31,30 +31,6 @@
     <script src="/assets/pace.min.js"></script>
     <link href="/assets/pace_style.css" rel="stylesheet" />
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $(".item").draggable(
-          {cursor: "move",
-          cursorAt: { top: 100, left: 100},
-          containment: "body"
-          }
-        );
-      });
-    </script>
-
-    <script type="text/javascript">
-    //for order after drag
-    $(document).ready(function() {
-      $('.item').draggable().on('mousedown', function() {
-        $('.item').not(this).css('z-index', '100');
-        $(this).css('z-index', '998');
-      });
-      $('button').click(function() {
-        $(this).closest('div.item').hide(0);
-        });
-    });
-    </script>
-
 </head>
 <body onload='setDivPos();'>
   <!-- menu bar -->
@@ -87,7 +63,6 @@
       </thead>
     </table>
   </div>
-
 
   <%= yield %>
 
