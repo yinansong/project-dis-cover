@@ -419,3 +419,14 @@ ul.list-of-a-feature img {
   font-family: 'Lato', sans-serif;
   margin: 0px;
 }
+
+
+.error-text {
+  font-family: 'Lato', sans-serif;
+  line-height: 180%;
+}
+
+.underscore {
+  padding-bottom: 3px;
+  border-bottom: 2px solid #000;
+}
