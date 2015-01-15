@@ -12,22 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :headshot_url, :class => "collector-form-label" %><br>
+    <%= f.label :avatar, :class => "collector-form-label" %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= f.label :headshot_url, :class => "collector-form-label" %><br />
     <%= f.text_field :headshot_url %>
   </div>
 
   <div class="field">
-    <%= f.label :name, :class => "collector-form-label" %><br>
+    <%= f.label :name, :class => "collector-form-label" %><br />
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :email, :class => "collector-form-label" %><br>
+    <%= f.label :email, :class => "collector-form-label" %><br />
     <%= f.text_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :password_digest, :class => "collector-form-label" %><br>
+    <%= f.label :password_digest, :class => "collector-form-label" %><br />
     <%= f.text_field :password_digest %>
   </div>
 
