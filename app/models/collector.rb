@@ -2,7 +2,7 @@ class Collector < ActiveRecord::Base
   has_many :manholecovers
 
   # This method associates the attribute ":avatar" with a file attachment
-  has_attach_file :avatar, styles: {
+  has_attached_file :avatar, styles: {
     thumb: '50x50>',
     circle: '200x200>'
   }
