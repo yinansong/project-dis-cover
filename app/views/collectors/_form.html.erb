@@ -13,31 +13,26 @@
 
   <div class="field">
     <%= f.label :avatar, :class => "collector-form-label" %><br />
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= f.label :headshot_url, :class => "collector-form-label" %><br />
-    <%= f.text_field :headshot_url %>
+    <%= f.file_field :avatar %><br /><br />
   </div>
 
   <div class="field">
     <%= f.label :name, :class => "collector-form-label" %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br /><br />
   </div>
 
   <div class="field">
     <%= f.label :email, :class => "collector-form-label" %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email %><br /><br />
   </div>
 
   <div class="field">
     <%= f.label :password_digest, :class => "collector-form-label" %><br />
-    <%= f.text_field :password_digest %>
+    <%= f.text_field :password_digest %><br /><br />
   </div>
 
   <div class="actions">
-    <%= f.submit "SUBMIT" %>
+    <%= f.submit "SUBMIT" %><br /><br />
     <%= link_to "NEVER MIND", root_path, class: 'button' %>
   </div>
 <% end %>
