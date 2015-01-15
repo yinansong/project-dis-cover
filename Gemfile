@@ -34,6 +34,8 @@ gem 'actionview', '~> 4.1.5', require: "action_view"
 
 gem 'activesupport', '~> 4.1.6'
 
+gem 'paperclip'
+gem 'aws-sdk'
 # Use unicorn as the app server
 # gem 'unicorn'
 
