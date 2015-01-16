@@ -388,6 +388,8 @@ ul.list-of-a-feature img {
   width: 200px;
   border-radius: 100px;
   margin: 0 70px 0 10px;
+  display: inline-block;
+  float:left;
 }
 
 /* collector profile page ends here*/

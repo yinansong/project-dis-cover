@@ -2,7 +2,7 @@
   <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
   <div class="collector-detail" style="display: inline-block; float:left;">
     <p id="notice"><%= notice %></p>
-    <img src="<%= @collector.headshot_url %>" class="profile-headshot" style="display: inline-block; float:left;">
+    <%= image_tag(@collector.avatar.url(:medium), :class => "profile-headshot") %>
     <div class="collector-info" style="display:block; float:left;">
       <h3 style="margin-top:-40px;"><%= @collector.name %></h3>
       <%= @collector.email%>

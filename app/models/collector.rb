@@ -4,7 +4,7 @@ class Collector < ActiveRecord::Base
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar, styles: {
     thumb: '50x50>',
-    circle: '200x200>'
+    medium: '200x200>'
   }
 
   # Validate the attached image is image/jpg, image/png, etc
