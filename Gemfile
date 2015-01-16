@@ -38,6 +38,9 @@ gem 'activesupport', '~> 4.1.6'
 
 gem 'paperclip'
 gem 'aws-sdk'
+
+gem 'newrelic_rpm'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
