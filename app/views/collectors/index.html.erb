@@ -5,7 +5,7 @@
     <% @collectors.each do |collector| %>
       <a href="/collectors/<%= collector.id %>">
         <div id="collector-box">
-          <img class="collector-list-img" src="<%= collector.headshot_url %>">
+          <%= image_tag(collector.avatar.url(:medium), :class => "collector-list-img") %>
         </div>
       </a>
     <% end %>
