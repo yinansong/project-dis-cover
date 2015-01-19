@@ -1,5 +1,5 @@
 class Collector < ActiveRecord::Base
-  has_many :manholecovers
+  has_many :manholecovers, dependent: :destroy
 
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar,
