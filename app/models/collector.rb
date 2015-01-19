@@ -7,7 +7,7 @@ class Collector < ActiveRecord::Base
     :storage => :s3,
     :url => ':s3_domain_url',
     :path => '/:class/:attachment/:id_partition/:style/:filename',
-    :bucket => "project-dis-cover",
+    :bucket => "dis-cover",
     :s3_credentials => S3_CREDENTIALS
 
   # Validate the attached image is image/jpg, image/png, etc
