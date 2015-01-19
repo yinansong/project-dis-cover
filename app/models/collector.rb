@@ -5,6 +5,8 @@ class Collector < ActiveRecord::Base
   has_attached_file :avatar,
     :styles => { :thumb => '50x50>', :medium => '200x200>'},
     :storage => :s3,
+    :url => ':s3_domain_url',
+    :path => '/:class/:attachment/:id_partition/:style/:filename',
     :bucket => "project-dis-cover",
     :s3_credentials => S3_CREDENTIALS
 
