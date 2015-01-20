@@ -4,7 +4,7 @@ class Collector < ActiveRecord::Base
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar,
     :styles => { :thumb => '50x50>', :medium => '200x200>'},
-    :default_url => "/images/nonmanholes/:style/missing.png",
+    :default_url => ":style/missing.jpg",
     :storage => :s3,
     :url => ':s3_domain_url',
     :path => '/:class/:attachment/:id_partition/:style/:filename',
