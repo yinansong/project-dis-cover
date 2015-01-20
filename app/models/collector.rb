@@ -16,5 +16,5 @@ class Collector < ActiveRecord::Base
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
   validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
 
-  validates :email, email_format: { message: "This doesn't look like an email address. Please try again."}
+  validates :email, email_format
 end
