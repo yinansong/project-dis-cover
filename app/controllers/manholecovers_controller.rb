@@ -132,6 +132,6 @@ class ManholecoversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manholecover_params
-      params.require(:manholecover).permit(:id, :manhole_url, :country, :region, :city, :year, :color, :keywords, :notes, :featured, :collector_id, :_method)
+      params.require(:manholecover).permit(:id, :manhole_img, :country, :region, :city, :year, :color, :keywords, :notes, :featured, :collector_id, :_method)
     end
 end
