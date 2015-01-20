@@ -41,6 +41,8 @@ gem 'aws-sdk'
 
 gem 'newrelic_rpm'
 
+gem 'validates_email_format_of'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
