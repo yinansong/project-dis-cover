@@ -6,7 +6,7 @@
 
   <div class="collection-box" style="top:70px">
     <div class="collector-detail" style="width: 100%;">
-      <img src="<%= @collector.headshot_url %>" class="profile-headshot" style="display: inline-block; float:left;">
+      <img src="<%= @collector.avatar.url(:medium) %>" class="profile-headshot" style="display: inline-block; float:left;">
       <div class="collector-info" style="display:block; font-family: 'Lato', sans-serif;">
         <h3 style="margin-top:-40px; font-family: 'Hammersmith One', sans-serif"><%= @collector.name %></h3>
         <p class="collector-info-entry">Has collected <%= @no_mhcv %> manhole covers in total</p><br>
