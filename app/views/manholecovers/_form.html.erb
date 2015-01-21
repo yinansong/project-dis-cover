@@ -12,43 +12,43 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :manhole_img, :class => "mhcv-form-label" %><br>
-    <%= f.text_field :manhole_img %>
+    <%= f.label :manhole_img, :class => "mhcv-form-label" %><br />
+    <%= f.file_field :manhole_img %><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :country, :class => "mhcv-form-label" %><br>
-    <%= f.text_field :country %>
+    <%= f.label :country, :class => "mhcv-form-label" %><br />
+    <%= f.text_field :country %><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :region, :class => "mhcv-form-label" %><br>
-    <%= f.text_field :region %>
+    <%= f.label :region, :class => "mhcv-form-label" %><br />
+    <%= f.text_field :region %><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :city, :class => "mhcv-form-label" %><br>
-    <%= f.text_field :city %>
+    <%= f.label :city, :class => "mhcv-form-label" %><br />
+    <%= f.text_field :city %><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :year, :class => "mhcv-form-label" %><br>
-    <%= f.text_field :year %>
+    <%= f.label :year, :class => "mhcv-form-label" %><br />
+    <%= f.text_field :year %><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :color, :class => "mhcv-form-label" %><br>
-    <%= select_tag "color", "<option>black</option><option>grey</option><option>white</option><option>red</option><option>orange</option><option>yellow</option><option>green</option><option>blue</option><option>purple</option><option>brown</option><option>other</option>".html_safe, disabled: false %>
+    <%= f.label :color, :class => "mhcv-form-label" %><br />
+    <%= select_tag "color", "<option>black</option><option>grey</option><option>white</option><option>red</option><option>orange</option><option>yellow</option><option>green</option><option>blue</option><option>purple</option><option>brown</option><option>other</option>".html_safe, disabled: false %><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :keywords, :class => "outfit-form-label" %><br>
-    <%= f.text_field :keywords %>
+    <%= f.label :keywords, :class => "outfit-form-label" %><br />
+    <%= f.text_field :keywords %><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :notes, :class => "outfit-form-label" %><br>
-    <%= f.text_field :notes %>
+    <%= f.label :notes, :class => "outfit-form-label" %><br />
+    <%= f.text_field :notes %><br /><br />
   </div>
 
   <div class="actions">
