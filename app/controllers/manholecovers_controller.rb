@@ -20,7 +20,6 @@ class ManholecoversController < ApplicationController
   def show
     @collector = ::Collector.find(@manholecover.collector_id)
     @manholecover = @collector.manholecovers.find(params[:id])
-
     # get random manhole covers of the same color
     color = @manholecover.color
     manholes_of_same_color = Manholecover.all.select do |manhole_entry|
@@ -82,44 +81,46 @@ class ManholecoversController < ApplicationController
     end
   end
 
-  # POST /manholecovers
+  # POST /collectors/1/manholecovers
   # POST /manholecovers.json
   def create
+    @collector = ::Collector.find_by(id: params[:collector_id])
     @manholecover = Manholecover.new(manholecover_params)
-
+    @manholecover.user_id = @collector.id
     respond_to do |format|
       if @manholecover.save
-        format.html { redirect_to @manholecover, notice: 'Manholecover was successfully created.' }
+        format.html { redirect_to collector_manholecovers_path, notice: 'Manholecover was successfully created.' }
         format.json { render :show, status: :created, location: @manholecover }
       else
         format.html { render :new }
-        format.json { render json: @manholecover.errors, status: :unprocessable_entity }
+        format.json { render json: @collector.manholecover.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /manholecovers/1
-  # PATCH/PUT /manholecovers/1.json
+  # PATCH/PUT collectors/1/manholecovers/1
+  # PATCH/PUT collectors/1/manholecovers/1.json
   def update
-    @manholecover = Manholecover.find(params[:id])
+    @collector = ::Collector.find_by(id: params[:collector_id])
     respond_to do |format|
       if @manholecover.update(manholecover_params)
-        format.html { redirect_to @manholecover, notice: 'Manhole Cover was successfully updated.' }
+        format.html { redirect_to collector_manholecover_path, notice: 'Manhole Cover was successfully updated.' }
         format.json { render :show, status: :ok, location: @manholecover }
       else
         format.html { render :edit }
-        format.json { render json: @manholecover.errors, status: :unprocessable_entity }
+        format.json { render json: @collector.manholecover.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /manholecovers/1
-  # DELETE /manholecovers/1.json
+  # DELETE collectors/1/manholecovers/1
+  # DELETE collectors/1/manholecovers/1.json
   def destroy
+    @collector = ::Collector.find_by(id: params[:collector_id])
     @manholecover = Manholecover.find(params[:id])
     @manholecover.destroy
     respond_to do |format|
-      format.html { redirect_to manholecovers_url, notice: 'Manholecover was successfully destroyed.' }
+      format.html { redirect_to collector_manholecovers_path, notice: 'Manholecover was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -127,6 +128,7 @@ class ManholecoversController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_manholecover
+      @collector = ::Collector.find_by(id: params[:user_id])
       @manholecover = Manholecover.find(params[:id])
     end
 
