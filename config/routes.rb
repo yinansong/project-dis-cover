@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'manholecovers/year/:year' => 'manholecovers#year'
   get 'manholecovers/keyword/:keyword' => 'manholecovers#keywords'
 
-  get 'collectors/:id/collection' => 'collectors#collection'
+  get 'collectors/:id/collection' => 'collectors#collection', :as => :collection_collector
 
   get 'signup' => 'collectors#new'
 
