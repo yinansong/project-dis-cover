@@ -2,7 +2,7 @@ class Manholecover < ActiveRecord::Base
   belongs_to :collector
 
   has_attached_file :manhole_img,
-    :styles => { :thumb => '320x320>', :medium => '640x640>'},
+    :styles => { :small => '320x320>', :large => '640x640>'},
     :storage => :s3,
     :url => ':s3_domain_url',
     :path => '/:class/:attachment/:id_partition/:style/:filename',
