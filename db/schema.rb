@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115220851) do
+ActiveRecord::Schema.define(version: 20150121162329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,18 +30,22 @@ ActiveRecord::Schema.define(version: 20150115220851) do
   end
 
   create_table "manholecovers", force: true do |t|
-    t.string   "manhole_url",                                          null: false
-    t.string   "country",                                              null: false
-    t.string   "region",                                               null: false
-    t.string   "city",                                                 null: false
-    t.integer  "year",                                                 null: false
-    t.string   "color",                                                null: false
-    t.string   "keywords",     default: [],                                         array: true
-    t.string   "notes",        default: "Just another manhole cover."
-    t.boolean  "featured",     default: false
+    t.string   "manhole_url",                                                      null: false
+    t.string   "country",                                                          null: false
+    t.string   "region",                                                           null: false
+    t.string   "city",                                                             null: false
+    t.integer  "year",                                                             null: false
+    t.string   "color",                                                            null: false
+    t.string   "keywords",                 default: [],                                         array: true
+    t.string   "notes",                    default: "Just another manhole cover."
+    t.boolean  "featured",                 default: false
     t.integer  "collector_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "manhole_img_file_name"
+    t.string   "manhole_img_content_type"
+    t.integer  "manhole_img_file_size"
+    t.datetime "manhole_img_updated_at"
   end
 
   add_index "manholecovers", ["keywords"], name: "index_manholecovers_on_keywords", using: :gin

@@ -82,7 +82,7 @@ class ManholecoversController < ApplicationController
   end
 
   # POST /collectors/1/manholecovers
-  # POST /manholecovers.json
+  # POST /collectors/1/manholecovers.json
   def create
     @collector = ::Collector.find_by(id: params[:collector_id])
     @manholecover = Manholecover.new(manholecover_params)
