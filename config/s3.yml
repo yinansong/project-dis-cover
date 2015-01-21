@@ -1,0 +1,9 @@
+development:
+  bucket: dis-cover
+  access_key_id:
+  secret_access_key:
+
+production:
+  bucket: dis-cover-pro
+  access_key_id:
+  secret_access_key:
