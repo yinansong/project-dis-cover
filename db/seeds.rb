@@ -1,19 +1,16 @@
 collector01 = Collector.create(
-  headshot_url: "https://s3.amazonaws.com/project-dis-cover/headshots/yinan.jpeg",
   name: "yinansong",
   email: "yinan.e.song@gmail.com",
   password_digest: "manholes4eva"
 )
 
 collector02 = Collector.create(
-  headshot_url: "https://s3.amazonaws.com/project-dis-cover/headshots/yinan.jpeg",
   name: "evasong",
   email: "eva.song.yinan@gmail.com",
   password_digest: "manholes4eva"
 )
 
 mhcv01 = Manholecover.create(
-  manhole_url: "https://s3.amazonaws.com/project-dis-cover/manholecovers/wenshufang.png",
   country: "China",
   region: "Sichuan",
   city: "Chengdu",
@@ -26,7 +23,6 @@ mhcv01 = Manholecover.create(
 )
 
 mhcv02 = Manholecover.create(
-  manhole_url: "https://s3.amazonaws.com/project-dis-cover/manholecovers/IMG_4865.png",
   country: "USA",
   region: "Connecticut",
   city: "New Haven",
@@ -39,7 +35,6 @@ mhcv02 = Manholecover.create(
 )
 
 mhcv03 = Manholecover.create(
-  manhole_url: "https://s3.amazonaws.com/project-dis-cover/manholecovers/IMG_4782.png",
   country: "USA",
   region: "Connecticut",
   city: "New Haven",
@@ -52,7 +47,6 @@ mhcv03 = Manholecover.create(
 )
 
 mhcv04 = Manholecover.create(
-  manhole_url: "https://s3.amazonaws.com/project-dis-cover/manholecovers/IMG_4768.png",
   country: "USA",
   region: "Connecticut",
   city: "New Haven",
@@ -65,7 +59,6 @@ mhcv04 = Manholecover.create(
 )
 
 mhcv05 = Manholecover.create(
-  manhole_url: "https://s3.amazonaws.com/project-dis-cover/manholecovers/IMG_4665.png",
   country: "USA",
   region: "Connecticut",
   city: "New Haven",
