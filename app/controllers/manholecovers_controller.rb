@@ -86,7 +86,7 @@ class ManholecoversController < ApplicationController
   def create
     @collector = ::Collector.find_by(id: params[:collector_id])
     @manholecover = Manholecover.new(manholecover_params)
-    @manholecover.user_id = @collector.id
+    @manholecover.collector_id = @collector.id
     respond_to do |format|
       if @manholecover.save
         format.html { redirect_to collector_manholecovers_path, notice: 'Manholecover was successfully created.' }

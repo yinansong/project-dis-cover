@@ -1,4 +1,4 @@
-<%= form_for(@manholecover) do |f| %>
+<%= form_for [@collector, @manholecover] do |f| %>
   <% if @manholecover.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@manholecover.errors.count, "error") %> prohibited this manholecover from being saved:</h2>
