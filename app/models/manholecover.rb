@@ -3,10 +3,9 @@ class Manholecover < ActiveRecord::Base
 
   has_attached_file :manhole_img,
     :styles => { :small => '320x320>', :large => '640x640>' },
-    :storage => :s3,
     :url => ':s3_domain_url',
-    :path => '/:class/:attachment/:id_partition/:style/:filename',
-    :bucket => "dis-cover",
+    :path => '/:class/:style/:filename',
+    :storage => :s3,
     :s3_credentials => S3_CREDENTIALS
 
   has_attached_file :manhole_img
