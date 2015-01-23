@@ -2,17 +2,15 @@ class Collector < ActiveRecord::Base
   has_many :manholecovers, dependent: :destroy
 
   has_attached_file :avatar,
-    :styles => { :thumb => '50x50>', :medium => '200x200>'},
+    :styles => {:thumb => '50x50>', :medium => '200x200>'},
     :default_url => ':style/missing.jpg',
+    # The :url is the url that users will use to render the image.
+    :url => ':s3_domain_url',
     # The :path is the directory in your application where your files will be stored.
-    :path => '/:class/:style/:filename',
+    :path => '/:class/:id_partition/:style/:filename',
     :storage => :s3,
     :bucket => ENV['S3_BUCKET_NAME'],
-    :s3_credentials => {
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
-      :bucket => ENV['S3_BUCKET_NAME']
-    }
+    :s3_credentials => S3_CREDENTIALS
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
