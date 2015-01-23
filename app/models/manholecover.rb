@@ -3,7 +3,6 @@ class Manholecover < ActiveRecord::Base
 
   has_attached_file :manhole_img,
     :styles => { :small => '320x320>', :large => '640x640>' },
-    :url => ':s3_domain_url',
     :path => '/:class/:style/:filename',
     :storage => :s3,
     :bucket => ENV['S3_BUCKET_NAME'],
