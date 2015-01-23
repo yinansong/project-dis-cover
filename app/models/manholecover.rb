@@ -6,6 +6,7 @@ class Manholecover < ActiveRecord::Base
     :url => ':s3_domain_url',
     :path => '/:class/:style/:filename',
     :storage => :s3,
+    :bucket => ENV['S3_BUCKET_NAME'],
     :s3_credentials => S3_CREDENTIALS
 
   has_attached_file :manhole_img

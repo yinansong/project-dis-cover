@@ -3,10 +3,11 @@ class Collector < ActiveRecord::Base
 
   has_attached_file :avatar,
     :styles => { :thumb => '50x50>', :medium => '200x200>'},
-    :default_url => ":style/missing.jpg",
+    :default_url => ':style/missing.jpg',
     :url => ':s3_domain_url',
     :path => '/:class/:style/:filename',
     :storage => :s3,
+    :bucket => ENV['S3_BUCKET_NAME'],
     :s3_credentials => S3_CREDENTIALS
 
   # Validate the attached image is image/jpg, image/png, etc
