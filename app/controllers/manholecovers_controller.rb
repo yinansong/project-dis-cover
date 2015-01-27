@@ -33,7 +33,7 @@ class ManholecoversController < ApplicationController
   # GET /collectors/1/manholecovers/1/edit
   def edit
     @collector = ::Collector.find_by(id: params[:collector_id])
-    @manholecover = @collector.items.find(params[:id])
+    @manholecover = @collector.manholecovers.find(params[:id])
   end
 
   # GET /manholecovers/city/:city
