@@ -118,7 +118,7 @@ class ManholecoversController < ApplicationController
   def destroy
     @collector = ::Collector.find_by(id: params[:collector_id])
     @manholecover = Manholecover.find(params[:id])
-    @manholecover.destroy
+    @manholecover.delete
     respond_to do |format|
       format.html { redirect_to collector_manholecovers_path, notice: 'Manholecover was successfully destroyed.' }
       format.json { head :no_content }

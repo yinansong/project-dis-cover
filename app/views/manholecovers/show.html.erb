@@ -38,7 +38,7 @@
         <br>
         <br>
         <br>
-        <%= link_to 'EDIT', edit_manholecover_path(@manholecover) %>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/manholecovers/<%= @id %>/delete" class="delete">DELETE</a>
+        <%= link_to 'EDIT', edit_manholecover_path(@collector, @manholecover) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'DELETE',collector_manholecover_path, method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
       </div>
   </div>
   <div id="related_image_part">
