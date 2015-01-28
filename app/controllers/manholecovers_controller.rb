@@ -85,7 +85,9 @@ class ManholecoversController < ApplicationController
   # POST /collectors/1/manholecovers.json
   def create
     @collector = ::Collector.find_by(id: params[:collector_id])
+    # binding.pry
     @manholecover = Manholecover.new(manholecover_params)
+    @manholecover.keywords = params[:manholecover][:keywords].downcase.split(", ")
     @manholecover.collector_id = @collector.id
     respond_to do |format|
       if @manholecover.save
