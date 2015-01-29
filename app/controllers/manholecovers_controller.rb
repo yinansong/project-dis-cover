@@ -110,7 +110,7 @@ class ManholecoversController < ApplicationController
     # @manholecover.keywords_will_change!
     # @manholecover.attributes = params[:keywords]
     @manholecover.keywords_will_change!
-    @manholecover.save!
+    # @manholecover.save!
     respond_to do |format|
       if @manholecover.update(manholecover_params) && @manholecover[:keywords] = params[:manholecover][:keywords].downcase.split(", ")
         format.html { redirect_to collector_manholecover_path, notice: 'Manhole Cover was successfully updated.' }
