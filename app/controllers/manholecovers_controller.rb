@@ -104,7 +104,7 @@ class ManholecoversController < ApplicationController
   # PATCH/PUT collectors/1/manholecovers/1.json
   def update
     @collector = ::Collector.find_by(id: params[:collector_id])
-    binding.pry
+    # binding.pry
     input_keywords = params[:manholecover][:keywords].downcase.split(", ")
     @manholecover.update(keywords: input_keywords)
     # @manholecover.keywords_will_change!
