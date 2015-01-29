@@ -104,8 +104,15 @@ class ManholecoversController < ApplicationController
   # PATCH/PUT collectors/1/manholecovers/1.json
   def update
     @collector = ::Collector.find_by(id: params[:collector_id])
+    binding.pry
+    input_keywords = params[:manholecover][:keywords].downcase.split(", ")
+    @manholecover.update(keywords: input_keywords)
+    # @manholecover.keywords_will_change!
+    # @manholecover.attributes = params[:keywords]
+    @manholecover.keywords_will_change!
+    @manholecover.save!
     respond_to do |format|
-      if @manholecover.update(manholecover_params)
+      if @manholecover.update(manholecover_params) && @manholecover[:keywords] = params[:manholecover][:keywords].downcase.split(", ")
         format.html { redirect_to collector_manholecover_path, notice: 'Manhole Cover was successfully updated.' }
         format.json { render :show, status: :ok, location: @manholecover }
       else
