@@ -432,3 +432,107 @@ ul.list-of-a-feature img {
   padding-bottom: 3px;
   border-bottom: 2px solid #000;
 }
+
+
+.form_input {
+  height: 20px;
+  width: 250px;
+  font-size: 13px;
+}
+
+.long_input {
+  height: 150px;
+}
+
+.field {
+  margin: 20px;
+}
+
+.form-field-desc {
+  font-size: 13px;
+  font-family: 'Lato', sans-serif;
+  line-height: 120%;
+  margin: -25px 310px;
+  color: #888888;
+  width: 330px;
+}
+
+.mhcv-form-label {
+  padding: 50px 0;
+  margin: 50px 0;
+  font-size: 15px;
+}
+
+input[type=text], input[type=file], textarea{
+  /*margin: 10px 40px;*/
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #DDDDDD;
+  width: 250px;
+}
+
+input[type=text]:focus, input[type=file]:focus, textarea:focus {
+  /*the glowing version*/
+/*  box-shadow: 0 0 5px #888888;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #888888;*/
+  border: 2px solid #000;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+}
+
+input[type=submit] {
+  border: 0px;
+  font-family: 'Hammersmith One', sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  background-color: #FFF;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  border-bottom: 1px solid #FFF ;
+  padding: 0px 0px;
+}
+
+input[type=submit]:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding: 0px 0px;
+}
+
+select {
+  width: 260px;
+  height: 30px;
+  border: 2px solid #DDD;
+  background-color: #FFF;
+  background: url('/assets/nonmanholes/dropdown-button-grey.jpg') no-repeat right #FEFEFE;
+  font-family: 'Lato', sans-serif;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 0;
+  font-size: 15px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  appearance: none;
+}
+
+select:focus {
+  border: 2px solid #000;
+  background: url('/assets/nonmanholes/dropdown-button-black.jpg') no-repeat right #FEFEFE;
+}
+
+::selection {
+  background: #DDDDDD; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #DDDDDD; /* Gecko Browsers */
+}
