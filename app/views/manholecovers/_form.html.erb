@@ -20,28 +20,28 @@
 
   <div class="field">
     <%= f.label :country, :class => "mhcv-form-label" %><br />
-    <%= f.text_field :country, :class => "form_input" %>
+    <%= f.text_field :country, :class => "form_input", :maxlength => 50 %>
     <div class="form-field-desc">Choose one from the dropdown menu.</div>
     <br /><br />
   </div>
 
   <div class="field">
     <%= f.label :region, :class => "mhcv-form-label" %><br />
-    <%= f.text_field :region, :class => "form_input" %>
+    <%= f.text_field :region, :class => "form_input", :maxlength => 50 %>
     <div class="form-field-desc">Depending on the country,this can be a state, province, profecture, etc.</div>
     <br /><br />
   </div>
 
   <div class="field">
     <%= f.label :city, :class => "mhcv-form-label" %><br />
-    <%= f.text_field :city, :class => "form_input" %>
+    <%= f.text_field :city, :class => "form_input", :maxlength => 50 %>
     <div class="form-field-desc">Or a twon. If you have more specific geo info, put it in the keyword field instead.</div>
     <br /><br />
   </div>
 
   <div class="field">
     <%= f.label :year, :class => "mhcv-form-label" %><br />
-    <%= f.text_field :year, :placeholder => "YYYY", :class => "form_input" %>
+    <%= f.text_field :year, :placeholder => "YYYY", :maxlength => 4, :class => "form_input" %>
     <div class="form-field-desc">In the format of YYYY</div>
     <br /><br />
   </div>
@@ -63,7 +63,7 @@
   <div class="field">
     <%= f.label :keywords, :class => "mhcv-form-label"%><br />
     <%= f.text_area :keywords, :placeholder => "Separate with comma", :class => "form_input long_input" %>
-    <div class="form-field-desc">Whatever comes to you mind. Also a good place for more specific geo location info.</div>
+    <div class="form-field-desc">Separated by commas. Whatever characterizes this manhole cover, really.</div>
     <br /><br />
   </div>
 
