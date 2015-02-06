@@ -9,6 +9,8 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
+gem 'bootstrap-sass'
+
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
@@ -42,6 +44,10 @@ gem 'aws-sdk'
 gem 'newrelic_rpm'
 
 gem 'validates_email_format_of'
+
+gem 'simple_form'
+
+gem 'country_select'
 
 # Use unicorn as the app server
 # gem 'unicorn'

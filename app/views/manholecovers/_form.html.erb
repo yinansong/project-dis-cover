@@ -1,4 +1,13 @@
-<%= form_for [@collector, @manholecover] do |f| %>
+<%= simple_form_for [@collector, @manholecover],
+  html: { class: 'form-horizontal' },
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    file: :horizontal_file_input,
+    boolean: :horizontal_boolean
+  } do |f| %>
+
   <% if @manholecover.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@manholecover.errors.count, "error") %> prohibited this manholecover from being saved:</h2>
@@ -11,66 +20,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :manhole_img, "Image", :class => "mhcv-form-label" %><br />
-    <%= f.file_field :manhole_img %>
-    <div class="form-field-desc">Upload your image.</div>
-    <br /><br />
+  <div class="row">
+
+    <div class="col-xs-1 col-sm-1 col-lg-1"></div>
+
+    <div class="col-xs-8 col-sm-8 col-lg-8">
+
+      <div class="col-xs-8 col-sm-8 col-lg-8">
+
+      <%= f.input :manhole_img, as: :file, :label_html => { :class => 'form-label' } %>
+
+      <%= f.input :country, :label_html => { :class => 'form-label' } %>
+
+      <%= f.input :region, :label_html => { :class => 'form-label' } %>
+
+      <%= f.input :city, :label_html => { :class => 'form-label' } %>
+
+      <%= f.input :year, as: :integer, :label_html => { :class => 'form-label' }%>
+
+      <%= f.input :color, collection: ["Black", "Grey", "White", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Brown", "Other"], :label_html => { :class => 'form-label' }%>
+
+      <%= f.input :notes, :label_html => { :class => 'form-label' }, :input_html => { :wrap => :soft, :rows => 2} %>
+
+      <%= f.input :keywords, :label_html => { :class => 'form-label' }, :input_html => { :wrap => :soft, :rows => 2} %>
+
+      <br>
+
+      <%= f.submit 'UPDATE' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "CANCEL", :back, class: 'link-button' %>
+
   </div>
 
-  <div class="field">
-    <%= f.label :country, :class => "mhcv-form-label" %><br />
-    <%= f.text_field :country, :class => "form_input", :maxlength => 50 %>
-    <div class="form-field-desc">Choose one from the dropdown menu.</div>
-    <br /><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :region, :class => "mhcv-form-label" %><br />
-    <%= f.text_field :region, :class => "form_input", :maxlength => 50 %>
-    <div class="form-field-desc">Depending on the country,this can be a state, province, profecture, etc.</div>
-    <br /><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :city, :class => "mhcv-form-label" %><br />
-    <%= f.text_field :city, :class => "form_input", :maxlength => 50 %>
-    <div class="form-field-desc">Or a twon. If you have more specific geo info, put it in the keyword field instead.</div>
-    <br /><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :year, :class => "mhcv-form-label" %><br />
-    <%= f.text_field :year, :placeholder => "YYYY", :maxlength => 4, :class => "form_input" %>
-    <div class="form-field-desc">In the format of YYYY</div>
-    <br /><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :color, :class => "mhcv-form-label" %><br />
-    <%= f.select :color, options_for_select(["Black", "Grey", "White", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Brown", "Other"], :class => "form_input") %>
-    <div class="form-field-desc">Just pick one the covers the most area, or just choose "other" if you can't decide.</div>
-    <br /><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :notes, :class => "outfit-form-label" %><br />
-    <%= f.text_area :notes, :class => "form_input long_input" %>
-    <div class="form-field-desc">Just write down one sentence or two.</div>
-    <br /><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :keywords, :class => "mhcv-form-label"%><br />
-    <%= f.text_area :keywords, :placeholder => "Separate with comma", :class => "form_input long_input" %>
-    <div class="form-field-desc">Separated by commas. Whatever characterizes this manhole cover, really.</div>
-    <br /><br />
-  </div>
-
-  <br /><br />
-  <div class="actions">
-    <%= f.submit "UPDATE"%>
-  </div>
 <% end %>
 
-<%= link_to "CANCEL", :back %>

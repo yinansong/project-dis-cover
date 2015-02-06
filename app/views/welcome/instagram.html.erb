@@ -1,8 +1,14 @@
-<section>
-  <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
-  <h3>Follow Project DisCover on Instagram!</h3>
-  <p class="about_text" style="margin-bottom: 20px;">Receive daily update of new manhole covers and news for the project.</p>
-  <% @tagged_w_manholecover.first(15).each do |manhole_entry| %>
-    <a href="<%= manhole_entry["link"] %>"><img src="<%= manhole_entry["images"]["low_resolution"]["url"] %>" class="ig-image"></a>
-  <% end %>
-</section>
+<div class="container">
+    <div class="row">
+      <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
+    </div>
+    <div class="row page-title">
+      <h3>Follow Project DisCover on Instagram!</h3>
+      <p class="about_text" style="margin-bottom: 20px;">Receive daily update of new manhole covers and news for the project.</p>
+    </div>
+    <div class="row" id="instagram-grid">
+      <% @tagged_w_manholecover.first(15).each do |manhole_entry| %>
+        <a href="<%= manhole_entry["link"] %>"><img src="<%= manhole_entry["images"]["low_resolution"]["url"] %>" class="ig-image"></a>
+      <% end %>
+    </div>
+</div>

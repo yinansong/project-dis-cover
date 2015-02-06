@@ -1,4 +1,4 @@
-<section>
+<div class="container">
   <h3>Manhole Covers in the Country of <%= @country.titleize %></h3>
   <% @certain_country_array.each_with_index do |manhole_entry| %>
     <a href="/collectors/<%= manhole_entry.collector_id %>/manholecovers/<%= manhole_entry.id %>">
@@ -8,4 +8,4 @@
     </a>
   <% end %>
   <div class="clear"></div>
-</section>
+</div>

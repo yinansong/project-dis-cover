@@ -1,12 +1,22 @@
-<section>
+<div class="container">
 
-  <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
+  <!-- close button -->
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-lg-11"></div>
+    <div class="col-xs-2 col-sm-2 col-lg-1">
+      <%= link_to image_tag("nonmanholes/close.png", :class => "img-responsive close"), root_path%>
+    </div>
+  </div>
 
   <p id="notice"><%= notice %></p>
 
+  <div class="row">
+    <div class="col-xs-2 col-sm-7 col-lg-7"></div>
+  </div>
+
   <div class="collection-box" style="top:70px">
     <div class="collector-detail" style="width: 100%;">
-      <img src="<%= @collector.avatar.url(:medium) %>" class="profile-headshot" style="display: inline-block; float:left;">
+      <img src="<%= @collector.avatar.url(:medium) %>" class="img-circle profile-headshot" style="display: inline-block; float:left;">
       <div class="collector-info" style="display:block; font-family: 'Lato', sans-serif;">
         <h3 style="margin-top:-40px; font-family: 'Hammersmith One', sans-serif"><%= @collector.name %></h3>
         <p class="collector-info-entry">Has collected <%= @no_mhcv %> manhole covers in total</p><br>
@@ -31,4 +41,4 @@
 
   <div class="clear"></div>
 
-</section>
+</div>

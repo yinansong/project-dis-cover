@@ -1,0 +1,380 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap-custom";
+
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Lato|Hammersmith+One);
+
+// Font Variables
+$Lato: 'Lato', sans-serif;
+$Hammersmith-One: 'Hammersmith One', sans-serif;
+
+// Color Variables
+$White: #FFF;
+$Black: #000;
+$Dark-Gray: #888;
+$Light-Gray: #444;
+$Tranparent: rgba(255, 255, 255, 0);
+
+//Styles
+body{
+  font-family: $Lato;
+  background-image: url("/assets/nonmanholes/bkpattern.png");
+  background-repeat: repeat;
+  color: $Black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $Hammersmith-One;
+}
+
+
+nav {
+  font-family: $Hammersmith-One;
+  color: $Black;
+  padding: 10px 0;
+}
+
+p {
+  font-family: $Lato;
+  font-size: 15px;
+  line-height: 180%;
+  color: $Black;
+}
+
+a {
+  background: $Tranparent;
+  color: $Black;
+}
+
+a:hover {
+  background: $Tranparent;
+  color: $Black;
+}
+
+a:active {
+  background: $Tranparent;
+  color: $Black;
+}
+
+nav a:after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 3px;
+  width: 0px;
+  background: $Tranparent;
+  transition: width .5s ease, background-color .5s ease;
+}
+
+nav a:hover:after {
+  width: 100%;
+  background: $Black;
+}
+
+ul.nav li.active {
+  background: $Tranparent;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: $Tranparent;
+  color: $Black;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $Black;
+}
+
+.container {
+  max-width: 860px;
+  padding: 40px 70px;
+  margin: 80px auto 50px auto ;
+  background-color: $White;
+}
+
+.navbar {
+  background-color: $Tranparent;
+  border: none;
+  color: $Black;
+}
+
+.page-title {
+  padding: 10px 0;
+}
+
+.close {
+  color: $Black;
+}
+
+// Homepage
+.meta_box {
+  display: none;
+  z-index: 999;
+}
+
+.item {
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  width: 200px;
+  /*filter: url(#drop-shadow);
+  -webkit-filter: drop-shadow(2px 2px 2px #585858);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";*/
+  transition: transform .3s ease-out;
+  -webkit-transition: -webkit-transform .3s ease-out;
+  -moz-transition: -moz-transform .3s ease-out;
+  -o-transition: -o-transform .3s ease-out;
+  -ms-transition: -ms-transform .3s ease-out;
+}
+
+.item:hover {
+  background: none;
+  cursor: move;
+  width: 250px;
+  -ms-transform:scale(1.05); /* IE 9 */
+  -moz-transform:scale(1.05); /* Firefox */
+  -webkit-transform:scale(1.05); /* Safari and Chrome */
+  -o-transform:scale(1.05); /* Opera */
+  transform: scale(1.05);
+  -ms-transform-origin: center;
+  -moz-transform-origin: center;
+  -webkit-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
+}
+
+.item.is-dragging {
+    background: none;
+    z-index: 2;
+}
+
+.item.is-positioning-post-drag{
+    background: none;
+    z-index: 10;
+}
+
+// Instagram Page
+.ig-image {
+  width: 220px;
+  padding: 20px;
+}
+
+#instagram-grid {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.ig-image:hover {
+  -ms-transform:scale(1.2); /* IE 9 */
+  -moz-transform:scale(1.2); /* Firefox */
+  -webkit-transform:scale(1.2); /* Safari and Chrome */
+  -o-transform:scale(1.2); /* Opera */
+  transform: scale(1.05);
+  -ms-transform-origin: center;
+  -moz-transform-origin: center;
+  -webkit-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
+}
+
+/*collector wall starts*/
+
+  #collector-wall {
+    display: inline-block;
+  }
+
+  #collector-box {
+    display: block;
+    float: left;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .collector-list-img {
+    width: 200px;
+    border-radius: 100px;
+  }
+
+  .collector-list-img:hover {
+    -ms-transform:scale(1.2); /* IE 9 */
+    -moz-transform:scale(1.2); /* Firefox */
+    -webkit-transform:scale(1.2); /* Safari and Chrome */
+    -o-transform:scale(1.2); /* Opera */
+    transform: scale(1.05);
+    -ms-transform-origin: center;
+    -moz-transform-origin: center;
+    -webkit-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
+  }
+
+/*collector wall ends*/
+
+/* manholeover show starts here */
+
+.description {
+  float: right;
+  // margin-right: 90px;
+  margin-top: 20px;
+}
+
+.description a:hover {
+  border-bottom: 1px solid #000;
+}
+
+p.meta_text {
+  font-family: $Hammersmith-One;
+  font-size: 15px;
+  // margin: -10px 0;
+  // margin-left: 3px;
+  // margin-top: 5px;
+  // width: 275px;
+}
+
+.meta_content {
+  font-family: $Lato;
+  font-size: 13px;
+}
+
+a.link-button {
+  font-family: $Hammersmith-One;
+  text-decoration: none;
+  padding: 5px;
+  border: 2px solid $Black;
+  background-color: $White;
+}
+
+a.link-button:hover {
+  padding: 5px 5px 2px 5px;
+  border-bottom: 5px solid $Black;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  margin: 50px 10px 20px 0px;
+}
+
+.similar {
+  margin: 10% 0 15% 0;
+}
+
+.small_image {
+  width: 200px;
+  margin: 20px;
+  // -webkit-filter: drop-shadow(2px 2px 2px #585858);
+  // filter: url(#drop-shadow);
+  // -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+  // filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+
+.small_image:hover {
+  background: none;
+  cursor: pointer;
+  -ms-transform:scale(1.2); /* IE 9 */
+  -moz-transform:scale(1.2); /* Firefox */
+  -webkit-transform:scale(1.2); /* Safari and Chrome */
+  -o-transform:scale(1.2); /* Opera */
+  transform: scale(1.05);
+  -ms-transform-origin: center;
+  -moz-transform-origin: center;
+  -webkit-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
+}
+
+table {
+  border: 0;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  padding: 0;
+  border-top: 0;
+  vertical-align: baseline;
+}
+
+/* manholecover show ends here */
+
+/*List Page Based on a Certain Feature*/
+.list-of-a-feature {
+  padding: 20px 18px;
+  margin: 0px;
+  display: block;
+  float: left;
+  list-style: none;
+}
+
+ul.list-of-a-feature li {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  padding: 3px;
+  text-align: center;
+  width: 190px;
+}
+
+ul.list-of-a-feature li:hover {
+  -ms-transform:scale(1.20); /* IE 9 */
+  -moz-transform:scale(1.20); /* Firefox */
+  -webkit-transform:scale(1.20); /* Safari and Chrome */
+  -o-transform:scale(1.20); /* Opera */
+  transform: scale(1.20);
+  -ms-transform-origin: center;
+  -moz-transform-origin: center;
+  -webkit-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
+}
+
+ul.list-of-a-feature img {
+  height: 180px;
+  padding: 5px;
+}
+
+.clear {
+  clear: both;
+}
+
+// form
+.control-label {
+  text-align: right;
+}
+
+.form-label {
+  font-family: $Hammersmith-One;
+}
+
+input[type=submit] {
+  font-family: $Hammersmith-One;
+  text-decoration: none;
+  padding: 4px 5px;
+  border: 2px solid $Black;
+  background-color: $White;
+}
+
+input[type=submit]:hover {
+  padding: 4px 5px 1px 5px;
+  border-bottom: 5px solid $Black;
+}
+
+.form-control{
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #DDDDDD;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.form-control:focus {
+  border: 2px solid #000;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  box-shadow: none;
+}

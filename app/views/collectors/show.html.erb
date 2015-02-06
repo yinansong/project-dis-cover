@@ -1,5 +1,7 @@
-<section>
-  <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
+<div class="container">
+  <div class="row">
+     <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
+  </div>
   <div class="collector-detail" style="display: inline-block; float:left;">
     <p id="notice"><%= notice %></p>
     <%= image_tag(@collector.avatar.url(:medium), :class => "profile-headshot") %>
@@ -17,4 +19,4 @@
     </div>
   </div>
   <div class="clear"></div>
-</section>
+</div>

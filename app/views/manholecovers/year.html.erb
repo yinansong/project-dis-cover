@@ -1,4 +1,4 @@
-<section>
+<div class="container">
   <h3>Manhole Covers Collected in the Year of <%= @year %></h3>
   <% @certain_year_array.each do |manhole_entry| %>
     <a href="/collectors/<%= manhole_entry.collector_id %>/manholecovers/<%= manhole_entry.id %>">
@@ -8,4 +8,4 @@
     </a>
   <% end %>
   <div class="clear"></div>
-</section>
+</div>

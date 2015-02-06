@@ -32,37 +32,35 @@
     <link href="/assets/pace_style.css" rel="stylesheet" />
 
 </head>
-<body onload='setDivPos();'>
-  <!-- menu bar -->
-  <div id="menu">
-    <table id="menu_table">
-      <thead>
-        <th>
-          <div id="about">
-            <a id="about_tb_text" href="/about">ABOUT</a>
-          </div>
-        </th>
-        <th> | <th>
-        <th><%= link_to 'SHUFFLE', root_path, id: "shuffle" %></th>
-        <th> | <th>
-        <th>
-          <div id="instagram">
-            <a id="blog_tb_text" href="/instagram">INSTAGRAM</a>
-          </div>
-        </th>
-      </thead>
-    </table>
-  </div>
 
-  <div id="menu_right">
-    <table>
-      <thead>
-        <th><%= link_to 'SIGNUP', signup_path %></th>
-        <th>|</th>
-        <th>LOGIN</th>
-      </thead>
-    </table>
-  </div>
+<body onload='setDivPos();'>
+
+  <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collection of nav links and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">HOME</a></li>
+              <li><%= link_to 'SHUFFLE', root_path %></li>
+              <li><a href="/about">ABOUT</a></li>
+              <li><a id="blog_tb_text" href="/instagram">INSTAGRAM</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li></li>
+              <li><%= link_to 'SIGNUP', signup_path %></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
 
   <%= yield %>
 
@@ -96,7 +94,7 @@
       });
     </script>
 
-  <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
 
 </body>
 </html>

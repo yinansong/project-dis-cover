@@ -1,55 +1,103 @@
-<section id="detail">
+<div class="container">
 
   <p id="notice"><%= notice %></p>
 
-  <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
-
-  <div class="major_image">
-      <img class="big_image" src="<%= @manholecover.manhole_img.url(:large) %>">
-      <div class="description">
-        <p class="meta_text">
-          Collector:&nbsp;
-          <span class="meta_content">
-            <a href="/collectors/<%= @collector.id %>/collection"><%= @collector.name %></a>
-          </span>
-        </p><br>
-        <p class="meta_text">
-          Location:&nbsp;
-          <span class="meta_content">
-            <a href="/manholecovers/city/<%= @manholecover.city %>"><%= @manholecover.city %></a>,
-            <a href="/manholecovers/region/<%= @manholecover.region %>"><%= @manholecover.region %></a>,
-            <a href="/manholecovers/country/<%= @manholecover.country %>"><%= @manholecover.country %></a>
-          </span>
-        </p><br>
-        <p class="meta_text" id="meta_year">
-          Year:&nbsp;
-          <span class="meta_content"><a href="/manholecovers/year/<%= @manholecover.year %>"><%= @manholecover.year %></a></span>
-        </p>
-        <br>
-        <p class="meta_text" id="meta_info">Note:&nbsp;<span class="meta_content"><%= @manholecover.notes %></span></p><br>
-        <p class="meta_text">
-          Keywords:&nbsp;
-          <span class="meta_content">
-            <% @manholecover.keywords.each do |keyword|%>
-              <a href="/manholecovers/keyword/<%= keyword %>">#<%= keyword %>&nbsp;</a>
-            <% end %>
-          </span>
-        </p>
-        <br>
-        <br>
-        <br>
-        <%= link_to 'EDIT', edit_collector_manholecover_path(@collector, @manholecover) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'DELETE',collector_manholecover_path, method: :delete, data: { confirm: 'Are you sure you want to delete this?' }%>
-      </div>
-  </div>
-  <div id="related_image_part">
-    <div id="divider"></div>
-    <div class="related_image">
-      <a href="/collectors/<%= @random_manhole_of_same_color1.collector_id %>/manholecovers/<%= @random_manhole_of_same_color1.id %>"><img class="small_image" src="<%= @random_manhole_of_same_color1.manhole_img.url(:small) %>"></a>
-      <a href="/collectors/<%= @random_manhole_of_same_color2.collector_id %>/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="small_image" src="<%= @random_manhole_of_same_color2.manhole_img.url(:small) %>"></a>
-      <a href="/collectors/<%= @random_manhole_of_same_color3.collector_id %>/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="small_image" src="<%= @random_manhole_of_same_color3.manhole_img.url(:small) %>"></a>
+  <!-- close button -->
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-lg-11"></div>
+    <div class="col-xs-2 col-sm-2 col-lg-1">
+      <%= link_to image_tag("nonmanholes/close.png", :class => "img-responsive close"), root_path%>
     </div>
   </div>
-</section>
+
+  <!-- large manhole image  -->
+  <div class="row">
+    <div class="col-xs-10 col-sm-9 col-lg-9"><img class="img-responsive big_image" src="<%= @manholecover.manhole_img.url(:large) %>"></div>
+    <div class="col-xs-2 col-sm-3 col-lg-3"></div>
+  </div>
+
+  <!-- empty row -->
+  <div class="row"><br></div>
+
+  <!-- description  -->
+  <div class="row">
+    <div class="col-xs-2 col-sm-7 col-lg-7"></div>
+    <div class="col-xs-10 col-sm-5 col-lg-5 description">
+      <div class="table-responsive">
+        <table class="table">
+          <tr>
+            <td>
+              <p class="meta_text">Collector:&nbsp;</p>
+            </td>
+            <td class="meta_content">
+              <a href="/collectors/<%= @collector.id %>/collection">
+                <%= @collector.name %>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="meta_text" id="meta_year">Year:&nbsp;</p>
+            </td>
+            <td class="meta_content">
+              <a href="/manholecovers/year/<%= @manholecover.year %>">
+                <%= @manholecover.year %>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="meta_text">Location:&nbsp;</p>
+            </td>
+            <td class="meta_content">
+              <a href="/manholecovers/city/<%= @manholecover.city %>"><%= @manholecover.city %></a>,
+              <a href="/manholecovers/region/<%= @manholecover.region %>"><%= @manholecover.region %></a>,
+              <a href="/manholecovers/country/<%= @manholecover.country %>"><%= @manholecover.country %></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="meta_text" id="meta_info">Note:&nbsp;</p>
+            </td>
+            <td class="meta_content">
+              <%= @manholecover.notes %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="meta_text">Keywords:&nbsp;</p>
+            </td>
+            <td class="meta_content">
+              <span class="meta_content">
+                <% @manholecover.keywords.each do |keyword|%>
+                  <a href="/manholecovers/keyword/<%= keyword %>">#<%= keyword %>&nbsp;</a>
+                <% end %>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <br>
+
+      <%= link_to 'EDIT', edit_collector_manholecover_path(@collector, @manholecover), class: "link-button" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'DELETE',collector_manholecover_path, method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: "link-button" %>
+    </div>
+  </div>
+
+  <div class="row"><hr class="divider"></div>
+
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-lg-4">
+      <a href="/collectors/<%= @random_manhole_of_same_color1.collector_id %>/manholecovers/<%= @random_manhole_of_same_color1.id %>"><img class="img-responsive small_image similar" src="<%= @random_manhole_of_same_color1.manhole_img.url(:small) %>"></a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-lg-4">
+      <a href="/collectors/<%= @random_manhole_of_same_color2.collector_id %>/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="img-responsive small_image similar" src="<%= @random_manhole_of_same_color2.manhole_img.url(:small) %>"></a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-lg-4">
+      <a href="/collectors/<%= @random_manhole_of_same_color3.collector_id %>/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="img-responsive small_image similar" src="<%= @random_manhole_of_same_color3.manhole_img.url(:small) %>"></a>
+    </div>
+  </div>
+</div>
 
 
 

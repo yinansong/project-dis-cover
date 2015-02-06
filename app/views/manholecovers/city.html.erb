@@ -1,11 +1,26 @@
-<section>
+<div class="container">
+
+  <!-- close button -->
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-lg-11"></div>
+    <div class="col-xs-2 col-sm-2 col-lg-1">
+      <%= link_to image_tag("nonmanholes/close.png", :class => "img-responsive close"), root_path%>
+    </div>
+  </div>
+
   <h3>Manhole Covers in the City of <%= @city.titleize %></h3>
-  <% @certain_city_array.each_with_index do |manhole_entry| %>
-    <a href="/collectors/<%= manhole_entry.collector_id %>/manholecovers/<%= manhole_entry.id %>">
-      <ul class="list-of-a-feature">
-        <li><img src="<%= manhole_entry.manhole_img.url(:large) %>"></li>
-      </ul>
-    </a>
-  <% end %>
-  <div class="clear"></div>
-</section>
+
+  <!-- empty row -->
+  <div class="row"><br></div>
+
+  <div class="row">
+    <% @certain_city_array.each_with_index do |manhole_entry| %>
+      <a href="/collectors/<%= manhole_entry.collector_id %>/manholecovers/<%= manhole_entry.id %>">
+        <ul class="list-of-a-feature">
+          <li><img src="<%= manhole_entry.manhole_img.url(:large) %>" class="img-responsive"></li>
+        </ul>
+      </a>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
