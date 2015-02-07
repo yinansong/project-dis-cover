@@ -91,5 +91,21 @@
       $(".meta_box").hide();
     });
   </script>
+
+  <script>
+    var j = 0;
+    var delay = 2000; //millisecond delay between cycles
+    function cycleThru(){
+      var jmax = $("ul#stats-machine li").length -1;
+      $("ul#stats-machine li:eq(" + j + ")")
+             .animate({"opacity" : "1"} ,400)
+             .animate({"opacity" : "1"}, delay)
+             .animate({"opacity" : "0"}, 400, function(){
+                     (j == jmax) ? j=0 : j++;
+                     cycleThru();
+             });
+    };
+    cycleThru();
+  </script>
 </body>
 </html>

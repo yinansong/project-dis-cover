@@ -1,7 +1,20 @@
-<span id="summary">
-  <%= @manholecovers.size %> manhole covers from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries currently&nbsp;&nbsp;&nbsp;
-</span>
+<ul id="stats-machine">
+  <li class="stat">
+    Currently <%= @manholecovers.size %> manhole covers in our collection.
+  </li>
+  <li class="stat">
+    These are from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries!
+  </li>
+  <li class="stat">
+    We have <%= @number_of_collectors %> collectors already, and they are cool.
+  </li>
+  <li class="stat">
+    Photo, design, or Code? Join our team in the name of manhole covers.
+  </li>
+</ul>
 
+
+<!-- Must keep this container or the manhole cover disappears after being dragged -->
 <div id="container">
   <% @sample_mhcv.each do |manholecover| %>
     <a href="/collectors/<%= manholecover.collector_id %>/manholecovers/<%= manholecover.id %>">
