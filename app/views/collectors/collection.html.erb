@@ -11,24 +11,24 @@
   <p id="notice"><%= notice %></p>
 
   <div class="row">
-    <div class="col-xs-2 col-sm-7 col-lg-7"></div>
+    <div class="col-xs-12 col-sm-4 col-lg-4">
+      <img src="<%= @collector.avatar.url(:medium) %>" class="img-circle img-responsive">
+    </div>
+    <div class="col-xs-12 col-sm-8 col-lg-8 collector-data">
+      <h3><%= @collector.name %></h3>
+      <ul class="collector-info">
+        <li>Has collected <%= @no_mhcv %> manhole covers in total, from <%= @no_cities %> cities, <%= @no_countries %> countries.</li>
+        <li>Most are from <a href="/manholecovers/city/<%= @most_city %>"><%= @most_city %></a>.</li>
+        <li>Things that  interest <%= @collector.name %> the most is <a href="/manholecovers/keyword/<%= @most_keyword %>">#<%= @most_keyword %></a></li>
+        <li>Member since <%= @collector.created_at.strftime("%B %Y") %></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="collection-box" style="top:70px">
-    <div class="collector-detail" style="width: 100%;">
-      <img src="<%= @collector.avatar.url(:medium) %>" class="img-circle profile-headshot" style="display: inline-block; float:left;">
-      <div class="collector-info" style="display:block; font-family: 'Lato', sans-serif;">
-        <h3 style="margin-top:-40px; font-family: 'Hammersmith One', sans-serif"><%= @collector.name %></h3>
-        <p class="collector-info-entry">Has collected <%= @no_mhcv %> manhole covers in total</p><br>
-        <p class="collector-info-entry">from <%= @no_cities %> cities, <%= @no_countries %> countries</p><br>
-        <p class="collector-info-entry">Most are from xxx country</p><br>
-        <br>
-        <p class="collector-info-entry">Collecting since <%= @collector.created_at.strftime("%B %Y") %></p>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <hr noshade style="margin: 0; margin-top: 50px; height: 2px; background-color: black; border: 0;">
-    <div class="collection" style="padding-top: 50px;">
+  <div class="row"><hr class="divider"></div>
+
+  <div class="row"></div>
+    <div class="col-xs-12 col-sm-12 col-lg-12">
       <% @manholecovers.each_with_index do |manhole_entry| %>
         <a href="/collectors/<%= manhole_entry.collector_id %>/manholecovers/<%= manhole_entry.id %>">
           <ul class="list-of-a-feature">
@@ -38,7 +38,4 @@
       <% end %>
     </div>
   </div>
-
-  <div class="clear"></div>
-
 </div>

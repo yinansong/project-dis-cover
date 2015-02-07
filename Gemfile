@@ -45,8 +45,6 @@ gem 'newrelic_rpm'
 
 gem 'validates_email_format_of'
 
-gem 'simple_form'
-
 gem 'country_select'
 
 # Use unicorn as the app server

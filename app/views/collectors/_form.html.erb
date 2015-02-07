@@ -1,38 +1,46 @@
-<%= form_for(@collector) do |f| %>
-  <% if @collector.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@collector.errors.count, "error") %> prohibited this collector from being saved:</h2>
+<div class="row">
+  <div class="col-xs-1 col-sm-1 col-lg-1"></div>
+  <div class="col-xs-10 col-sm-10 col-lg-10">
+    <%= form_for(@collector) do |f| %>
+      <% if @collector.errors.any? %>
+        <div id="error_explanation">
+          <h2>This collector can't be saved due to <%= pluralize(@collector.errors.count, "error") %></h2>
 
-      <ul>
-      <% @collector.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @collector.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :avatar, :class => "collector-form-label" %>
-    <%= f.file_field :avatar %><br /><br />
-  </div>
+      <div class="field">
+        <%= f.label :avatar, :class => "form-label" %><br />
+        <%= f.file_field :avatar %>
+        <div class="form-field-desc">Ideally this is a square image.</div>
+      </div>
 
-  <div class="field">
-    <%= f.label :name, :class => "collector-form-label" %>
-    <%= f.text_field :name, :class => "form-control" %><br /><br />
-  </div>
+      <div class="field">
+        <%= f.label :name, :class => "form-label" %><br />
+        <%= f.text_field :name, :class => "form_input" %>
+        <div class="form-field-desc">No space, or special characters.</div>
+      </div>
 
-  <div class="field">
-    <%= f.label :email, :class => "collector-form-label" %>
-    <%= f.text_field :email, :class => "form-control" %><br /><br />
-  </div>
+      <div class="field">
+        <%= f.label :email, :class => "form-label" %><br />
+        <%= f.text_field :email, :class => "form_input" %>
+        <div class="form-field-desc">You'll receive an email to confirm this.</div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_digest, 'Password', :class => "collector-form-label" %>
-    <%= f.password_field :password_digest, :class => "form-control" %><br /><br />
-  </div>
+      <div class="field">
+        <%= f.label :password_digest, 'Password', :class => "form-label" %><br />
+        <%= f.password_field :password_digest, :class => "form_input" %>
+        <div class="form-field-desc">Do the best you can.</div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "SUBMIT" %><br /><br />
-    <%= link_to "NEVER MIND", root_path, class: 'button' %>
+      <br /><br />
+
+      <%= f.submit "UPDATE", :class => "actions" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "CANCEL", :back, :class => 'link-button' %>
+    <% end %>
   </div>
-<% end %>
+</div>

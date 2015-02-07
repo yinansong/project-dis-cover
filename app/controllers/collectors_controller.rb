@@ -6,6 +6,7 @@ class CollectorsController < ApplicationController
     @collector = ::Collector.find_by(id: params[:id])
     @manholecovers = @collector.manholecovers
     @no_mhcv = @manholecovers.size
+    # calculate the number of citis & countries the collector collects manholecovers from
     @cities = @manholecovers.map do |manholecover|
       manholecover.city
     end
@@ -14,6 +15,13 @@ class CollectorsController < ApplicationController
       manholecover.country
     end
     @no_countries = @countries.uniq.size
+    # find the city where the collector collects the most manholecovers from
+    @most_city = @cities.group_by do |e|
+      e
+    end.values.max_by(&:size).first
+    # find the keyword that the collector uses the most often
+    @all_keywords = @manholecovers.map { |manholecover| manholecover.keywords}.flatten
+    @most_keyword = @all_keywords.group_by {|e| e }.values.max_by(&:size).first
   end
 
   # GET /collectors
