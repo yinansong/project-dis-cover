@@ -2,21 +2,28 @@
   <div class="row">
      <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
   </div>
-  <div class="collector-detail" style="display: inline-block; float:left;">
+  <div class="row">
     <p id="notice"><%= notice %></p>
-    <%= image_tag(@collector.avatar.url(:medium), :class => "profile-headshot") %>
-    <div class="collector-info" style="display:block; float:left;">
-      <h3 style="margin-top:-40px;"><%= @collector.name %></h3>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-lg-4">
+      <%= image_tag(@collector.avatar.url(:medium), :class => "img-circle img-responsive") %>
+    </div>
+    <div>
+      <h3><%= @collector.name %></h3>
       <%= @collector.email%>
-      <br>
-      <br>
-      <br>
-      <%= link_to 'EDIT', edit_collector_path(@collector) %>&nbsp;&nbsp;&nbsp;
-      <%= link_to 'BACK', collectors_path %>
-      <br>
-      <br>
-      <%= link_to "VIEW COLLECTION", collection_collector_path %>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <%= link_to "VIEW COLLECTION", collection_collector_path, class: "link-button" %>&nbsp;&nbsp;
+      <%= link_to 'EDIT', edit_collector_path(@collector), class: "link-button" %>&nbsp;&nbsp;
+      <%= link_to 'BACK', collectors_path, class: "link-button" %>
     </div>
   </div>
-  <div class="clear"></div>
+
+
+
 </div>
