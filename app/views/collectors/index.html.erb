@@ -4,7 +4,7 @@
   <p class="about_text" style="margin-bottom: 20px;">Find our who are contributing to this project.</p>
   <div id="collector-wall">
     <% @collectors.each do |collector| %>
-      <a href="/collectors/<%= collector.id %>">
+      <a href="/collectors/<%= collector.id %>/collection">
         <div id="collector-box">
           <%= image_tag(collector.avatar.url(:medium), :class => "img-circle collector-list-img") %>
         </div>
