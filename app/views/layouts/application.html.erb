@@ -23,13 +23,9 @@
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
 
-  <!-- Google fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Lato|Hammersmith+One' rel='stylesheet' type='text/css'>
-
   <!-- javascript and jquery -->
-
-    <script src="/assets/pace.min.js"></script>
-    <link href="/assets/pace_style.css" rel="stylesheet" />
+  <script src="/assets/pace.min.js"></script>
+  <link href="/assets/pace_style.css" rel="stylesheet" />
 
 </head>
 
@@ -64,37 +60,36 @@
 
   <%= yield %>
 
+  <%= javascript_include_tag 'application' %>
+
   <script>
-      function setDivPos() {
-        var conW = $( window ).width() - 100,
-            conH = $( window ).height() - 100
-        $('#container').css( "width", conW );
-        $('#container').css( "height", conH );
+    function setDivPos() {
+    var conW = $( window ).width() - 100,
+        conH = $( window ).height() - 100
+    $('#container').css( "width", conW );
+    $('#container').css( "height", conH );
 
-        $('.item').each(function(idx, el){
-          var x = Math.floor( Math.random() * $( window ).width() ) - 150;
-          var y = Math.floor( Math.random() * $( window ).height() ) - 100;
-          console.log(el);
-          el.style.left = x + 'px';
-          el.style.top = y + 'px';
-        });
-      }
+    $('.item').each(function(idx, el){
+      var x = Math.floor( Math.random() * $( window ).width() ) - 150;
+      var y = Math.floor( Math.random() * $( window ).height() ) - 100;
+      console.log(el);
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+    });
+  }
 
+    // $(".meta_box").hide();
+
+    $(".item").mouseover(function(event) {
+      var index = parseInt( event.target.id.match(/\d+/), 10 );
+      $(".item" + index).css;
       $(".meta_box").hide();
+      $("#meta_box" + index).show();
+    });
 
-      $(".item").mouseover(function(event) {
-        var index = parseInt( event.target.id.match(/\d+/), 10 );
-        $("#item" + index).css
-        $(".meta_box").hide();
-        $("#meta_box" + index).show();
-      });
-
-      $(".item").mouseout(function(event) {
-        $(".meta_box").hide();
-      });
-    </script>
-
-    <%= javascript_include_tag 'application' %>
-
+    $(".item").mouseout(function(event) {
+      $(".meta_box").hide();
+    });
+  </script>
 </body>
 </html>

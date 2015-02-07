@@ -159,11 +159,21 @@ ul.nav li.active {
 }
 
 #summary {
-  position: fixed;
-  right: 83px;
-  top: 23px;
   font-size: 18px;
   font-family: $Hammersmith-One;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+.meta_box {
+  font-family: $Hammersmith-One;
+  font-size: 18px;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
 }
 
 // Instagram Page
@@ -278,7 +288,7 @@ a.link-button:hover {
 
 .small_image {
   width: 200px;
-  margin: 20px;
+  margin: 20px 0;
   // -webkit-filter: drop-shadow(2px 2px 2px #585858);
   // filter: url(#drop-shadow);
   // -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
