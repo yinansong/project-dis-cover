@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :roles
+
+  resources :users
+
   resources :manholecovers
 
   resources :collectors do
