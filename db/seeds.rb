@@ -1,71 +1,52 @@
-collector01 = Collector.create(
-  name: "yinansong",
-  email: "yinan.e.song@gmail.com",
-  password_digest: "manholes4eva"
-)
+r1 = Role.create({name: "Viewer", description: "Can see manholecovers"})
+r2 = Role.create({name: "Collector", description: "Can read and create manholecovers. Can update and destroy own manholecovers"})
+r3 = Role.create({name: "Admin", description: "Can perform any CRUD operation on any resource"})
 
-collector02 = Collector.create(
-  name: "evasong",
-  email: "eva.song.yinan@gmail.com",
-  password_digest: "manholes4eva"
-)
+c1 = Collector.create({name: "Sally", email: "sally@example.com", password: "aaaaaaaa", password_confirmation: "aaaaaaaa", role_id: r1.id})
+c2 = Collector.create({name: "Sue", email: "sue@example.com", password: "aaaaaaaa", password_confirmation: "aaaaaaaa", role_id: r2.id})
+c3 = Collector.create({name: "Kev", email: "kev@example.com", password: "aaaaaaaa", password_confirmation: "aaaaaaaa", role_id: r2.id})
+c4 = Collector.create({name: "Jack", email: "jack@example.com", password: "aaaaaaaa", password_confirmation: "aaaaaaaa", role_id: r3.id})
 
-mhcv01 = Manholecover.create(
+m1 = Manholecover.create({
   country: "China",
   region: "Sichuan",
   city: "Chengdu",
   year: "2014",
   color: "black",
-  keywords: ["animal", "frog", "traditional"],
-  notes: "From a historical site in my hometown",
-  featured: true,
-  collector_id: 1
-)
+  keywords: "",
+  featured: false,
+  collector_id: c2.id
+  })
 
-mhcv02 = Manholecover.create(
+m2 = Manholecover.create({
   country: "USA",
   region: "Connecticut",
   city: "New Haven",
   year: "2014",
   color: "brown",
-  keywords: ["nicefont", "sewer"],
-  notes: "I think it's on the Beinecke Plaza",
-  featured: true,
-  collector_id: 1
-)
+  keywords: "",
+  featured: false,
+  collector_id: c2.id
+  })
 
-mhcv03 = Manholecover.create(
+m3 = Manholecover.create({
   country: "USA",
-  region: "Connecticut",
-  city: "New Haven",
+  region: "New York",
+  city: "New York",
   year: "2014",
-  color: "blue",
-  keywords: ["circular", "watermeter"],
-  notes: "It's bigger than the normal tiny ones tho.",
-  featured: true,
-  collector_id: 2
-)
+  color: "grey",
+  keywords: "",
+  featured: false,
+  collector_id: c3.id
+  })
 
-mhcv04 = Manholecover.create(
+m4 = Manholecover.create({
   country: "USA",
-  region: "Connecticut",
-  city: "New Haven",
+  region: "Massachusetts",
+  city: "Boston",
   year: "2014",
-  color: "orange",
-  keywords: ["sun", "circular"],
-  notes: "Good morning, New Haven. Good morning, Chapel Street.",
-  featured: true,
-  collector_id: 2
-)
-
-mhcv05 = Manholecover.create(
-  country: "USA",
-  region: "Connecticut",
-  city: "New Haven",
-  year: "2014",
-  color: "purple",
-  keywords: ["SNET", "circular"],
-  notes: "This could be a snowflake.",
-  featured: true,
-  collector_id: 2
-)
+  color: "brown",
+  keywords: "",
+  featured: false,
+  collector_id: c4.id
+  })

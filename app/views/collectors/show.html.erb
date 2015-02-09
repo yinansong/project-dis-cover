@@ -3,15 +3,24 @@
      <%= link_to image_tag("nonmanholes/close.png", :class => "close"), root_path%>
   </div>
   <div class="row">
-    <p id="notice"><%= notice %></p>
-  </div>
-  <div class="row">
     <div class="col-xs-12 col-sm-4 col-lg-4">
       <%= image_tag(@collector.avatar.url(:medium), :class => "img-circle img-responsive") %>
     </div>
     <div>
       <h3><%= @collector.name %></h3>
       <%= @collector.email%>
+      <p>
+        <strong>Joined on:</strong>
+        <%= @joined_on %>
+      </p>
+      <p>
+        <strong>Last logged in on:</strong>
+        <%= @last_login %>
+      </p>
+      <p>
+        <strong>No. times logged in:</strong>
+        <%= @collector.sign_in_count %>
+      </p>
       <br />
       <br />
       <br />

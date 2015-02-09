@@ -38,6 +38,17 @@
         <div class="form-field-desc">Do the best you can.</div>
       </div>
 
+      <div class="field">
+        <%= f.label :role_id, 'Role', :class => "form-label" %><br />
+        <%= collection_select(:collector, :role_id, Role.all, :id, :name, {prompt: true}) %>
+        <div class="form-field-desc">Do the best you can.</div>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br>
+        <%= f.password_field :password, placeholder: "Leave blank if unchanged" %>
+      </div>
+
       <!-- empty row -->
       <div class="row"><br></div>
       <!-- empty row -->

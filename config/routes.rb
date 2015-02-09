@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :collectors
+
+  scope "/admin" do
+    resources :collectors
+  end
+
+  resources :roles
+
   resources :manholecovers
 
   resources :collectors do

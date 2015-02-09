@@ -58,6 +58,17 @@
     </div>
   </nav>
 
+  <div style="z-index:999; position:absolute; top:200px; left:200px;">
+    <% if collector_signed_in? %>
+      Signed in as <%= current_collector.email %>. Not you?
+      <%= link_to "Edit profile", edit_collector_registration_path %>
+      <%= link_to "Sign out", destroy_collector_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_collector_registration_path %> or <%= link_to "sign in", new_collector_session_path %>
+    <% end %>
+  </div>
+
+
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>

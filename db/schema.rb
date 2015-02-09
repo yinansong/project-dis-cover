@@ -11,23 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121164259) do
+ActiveRecord::Schema.define(version: 20150209033420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "collectors", force: true do |t|
     t.string   "headshot_url"
-    t.string   "name",                null: false
-    t.string   "email",               null: false
-    t.string   "password_digest",     null: false
+    t.string   "name",                                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.integer  "role_id"
   end
+
+  add_index "collectors", ["email"], name: "index_collectors_on_email", unique: true, using: :btree
+  add_index "collectors", ["reset_password_token"], name: "index_collectors_on_reset_password_token", unique: true, using: :btree
 
   create_table "manholecovers", force: true do |t|
     t.string   "country",                                                          null: false
@@ -48,5 +60,12 @@ ActiveRecord::Schema.define(version: 20150121164259) do
   end
 
   add_index "manholecovers", ["keywords"], name: "index_manholecovers_on_keywords", using: :gin
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

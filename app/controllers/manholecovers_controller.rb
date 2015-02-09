@@ -1,5 +1,8 @@
 class ManholecoversController < ApplicationController
-  before_action :set_manholecover, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+
+  before_filter :authenticate_collector!
+  # before_action :set_manholecover, only: [:show, :edit, :update, :destroy]
 
   # GET /collectors/1/manholecovers
   # GET /collectors/1/manholecovers.json
@@ -11,7 +14,7 @@ class ManholecoversController < ApplicationController
   # GET /collectors/1/manholecovers/new
   def new
     @collector = ::Collector.find_by(id: params[:collector_id])
-    @manholecover = @collector.manholecovers.new
+    # @manholecover = @collector.manholecovers.new
     # something is wrong with the above line
   end
 
@@ -86,7 +89,7 @@ class ManholecoversController < ApplicationController
   def create
     @collector = ::Collector.find_by(id: params[:collector_id])
     # binding.pry
-    @manholecover = Manholecover.new(manholecover_params)
+    # @manholecover = Manholecover.new(manholecover_params)
     @manholecover.keywords = params[:manholecover][:keywords].downcase.split(", ")
     @manholecover.collector_id = @collector.id
     respond_to do |format|
@@ -136,10 +139,10 @@ class ManholecoversController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_manholecover
-      @collector = ::Collector.find_by(id: params[:user_id])
-      @manholecover = Manholecover.find(params[:id])
-    end
+    # def set_manholecover
+    #   @collector = ::Collector.find_by(id: params[:collector_id])
+    #   @manholecover = Manholecover.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manholecover_params
