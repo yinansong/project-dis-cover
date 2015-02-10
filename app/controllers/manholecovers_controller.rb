@@ -1,4 +1,5 @@
 class ManholecoversController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_manholecover, only: [:show, :edit, :update, :destroy]
 
   # GET /collectors/1/manholecovers

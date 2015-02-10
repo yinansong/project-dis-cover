@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
   # GET /roles
@@ -10,6 +11,11 @@ class RolesController < ApplicationController
   # GET /roles/1
   # GET /roles/1.json
   def show
+    if @roles.users.legnth == 0
+      @associated_users = "None"
+    else
+      @associated_users = @role.users.map(&:name).join(", ")
+    end
   end
 
   # GET /roles/new

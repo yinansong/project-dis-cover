@@ -6,7 +6,7 @@
     These are from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries!
   </li>
   <li class="stat">
-    We have <%= @number_of_collectors %> collectors already, and they are cool.
+    We have <%= @number_of_users %> collectors already, and they are cool.
   </li>
   <li class="stat">
     Photo, design, or Code? Join our team in the name of manhole covers.
@@ -17,7 +17,7 @@
 <!-- Must keep this container or the manhole cover disappears after being dragged -->
 <div id="container">
   <% @sample_mhcv.each do |manholecover| %>
-    <a href="/collectors/<%= manholecover.collector_id %>/manholecovers/<%= manholecover.id %>">
+    <a href="/users/<%= manholecover.user_id %>/manholecovers/<%= manholecover.id %>">
       <img class="item" id="item<%= manholecover.id %>" src="<%= manholecover.manhole_img.url(:small) %>">
     </a>
     <div class="meta_box" id="meta_box<%= manholecover.id %>">

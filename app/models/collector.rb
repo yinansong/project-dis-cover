@@ -1,5 +1,5 @@
 class Collector < ActiveRecord::Base
-  has_many :manholecovers, dependent: :destroy
+  # has_many :manholecovers, dependent: :destroy
 
   has_attached_file :avatar,
     :styles => {:thumb => '50x50>', :medium => '200x200>'},

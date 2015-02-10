@@ -47,6 +47,8 @@ gem 'validates_email_format_of'
 
 gem 'country_select'
 
+gem 'devise'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,5 +1,5 @@
 class Manholecover < ActiveRecord::Base
-  belongs_to :collector
+  belongs_to :user
 
   has_attached_file :manhole_img,
     :styles => {:small => '320x320>', :large => '640x640>'},

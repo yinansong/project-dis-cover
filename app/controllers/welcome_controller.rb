@@ -12,8 +12,8 @@ class WelcomeController < ApplicationController
       manhole_entry["country"]
     end
     @number_of_countries_uniq = @countries.uniq.size
-    # number of collectors in total
-    @number_of_collectors = @manholecovers.map {|m| m.collector}.size
+    # number of users in total
+    @number_of_users = @manholecovers.map {|m| m.user}.size
   end
 
   def instagram
