@@ -1,26 +1,32 @@
 class ManholecoversController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_manholecover, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  # before_action :set_manholecover, only: [:show, :edit, :update, :destroy]
 
-  # GET /collectors/1/manholecovers
-  # GET /collectors/1/manholecovers.json
+  # GET /users/1/manholecovers
+  # GET /users/1/manholecovers.json
   def index
-    @collector = ::Collector.find_by(id: params[:collector_id])
-    @manholecovers = @collector.manholecovers
+    if @user
+      @user_name = User.find_by(id: params[:user_id]).name
+      @manholecovers = @user.manholecovers
+    else
+      @user_name = "All Users"
+      @manholecovers = Manholecover.all
+    end
   end
 
-  # GET /collectors/1/manholecovers/new
+  # GET /users/1/manholecovers/new
   def new
-    @collector = ::Collector.find_by(id: params[:collector_id])
-    @manholecover = @collector.manholecovers.new
+    @user = User.find_by(id: params[:user_id])
+    # @manholecover = @user.manholecovers.new
     # something is wrong with the above line
   end
 
   # GET /manholecovers/1
   # GET /manholecovers/1.json
   def show
-    @collector = ::Collector.find(@manholecover.collector_id)
-    @manholecover = @collector.manholecovers.find(params[:id])
+    @user = User.find(@manholecover.user_id)
+    @manholecover = @user.manholecovers.find(params[:id])
     # get random manhole covers of the same color
     color = @manholecover.color
     manholes_of_same_color = Manholecover.all.select do |manhole_entry|
@@ -31,10 +37,14 @@ class ManholecoversController < ApplicationController
     @random_manhole_of_same_color3 = manholes_of_same_color.sample
   end
 
-  # GET /collectors/1/manholecovers/1/edit
+  # GET /users/1/manholecovers/1/edit
   def edit
-    @collector = ::Collector.find_by(id: params[:collector_id])
-    @manholecover = @collector.manholecovers.find(params[:id])
+    if params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+      @manholecover = @user.manholecovers.find(params[:id])
+    else
+      @manholecover = Manholecover.find(params[:id])
+    end
   end
 
   # GET /manholecovers/city/:city
@@ -82,55 +92,70 @@ class ManholecoversController < ApplicationController
     end
   end
 
-  # POST /collectors/1/manholecovers
-  # POST /collectors/1/manholecovers.json
+  # POST /users/1/manholecovers
+  # POST /users/1/manholecovers.json
   def create
-    @collector = ::Collector.find_by(id: params[:collector_id])
+    @user = User.find_by(id: params[:user_id])
     # binding.pry
-    @manholecover = Manholecover.new(manholecover_params)
+    # @manholecover = Manholecover.new(manholecover_params)
     @manholecover.keywords = params[:manholecover][:keywords].downcase.split(", ")
-    @manholecover.collector_id = @collector.id
+    @manholecover.user_id = @user.id
     respond_to do |format|
       if @manholecover.save
-        format.html { redirect_to collector_manholecovers_path, notice: 'Manholecover was successfully created.' }
+        format.html { redirect_to user_manholecovers_path, notice: 'Manholecover was successfully created.' }
         format.json { render :show, status: :created, location: @manholecover }
       else
         format.html { render :new }
-        format.json { render json: @collector.manholecover.errors, status: :unprocessable_entity }
+        format.json { render json: @user.manholecover.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT collectors/1/manholecovers/1
-  # PATCH/PUT collectors/1/manholecovers/1.json
+  # PATCH/PUT users/1/manholecovers/1
+  # PATCH/PUT users/1/manholecovers/1.json
   def update
-    @collector = ::Collector.find_by(id: params[:collector_id])
-    # binding.pry
-    input_keywords = params[:manholecover][:keywords].downcase.split(", ")
-    @manholecover.update(keywords: input_keywords)
-    # @manholecover.keywords_will_change!
-    # @manholecover.attributes = params[:keywords]
-    @manholecover.keywords_will_change!
-    # @manholecover.save!
-    respond_to do |format|
-      if @manholecover.update(manholecover_params) && @manholecover[:keywords] = params[:manholecover][:keywords].downcase.split(", ")
-        format.html { redirect_to collector_manholecover_path, notice: 'Manhole Cover was successfully updated.' }
-        format.json { render :show, status: :ok, location: @manholecover }
-      else
-        format.html { render :edit }
-        format.json { render json: @collector.manholecover.errors, status: :unprocessable_entity }
+    if params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+      # binding.pry
+      input_keywords = params[:manholecover][:keywords].downcase.split(", ")
+      @manholecover.update(keywords: input_keywords)
+      # @manholecover.keywords_will_change!
+      # @manholecover.attributes = params[:keywords]
+      @manholecover.keywords_will_change!
+      # @manholecover.save!
+      respond_to do |format|
+        if @manholecover.update(manholecover_params)
+          format.html { redirect_to user_manholecover_path, notice: 'Manhole Cover was successfully updated.' }
+          format.json { render :show, status: :ok, location: @manholecover }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.manholecover.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      input_keywords = params[:manholecover][:keywords].downcase.split(", ")
+      @manholecover = Manholecover.find(params[:id])
+      # @manholecover.update
+      respond_to do |format|
+        if @manholecover.update(manholecover_params)
+          format.html { redirect_to manholecover_path, notice: 'Manhole Cover was successfully updated.' }
+          format.json { render :show, status: :ok, location: @manholecover }
+        else
+          format.html { render :edit }
+          format.json { render json: @manholecover.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
-  # DELETE collectors/1/manholecovers/1
-  # DELETE collectors/1/manholecovers/1.json
+  # DELETE users/1/manholecovers/1
+  # DELETE users/1/manholecovers/1.json
   def destroy
-    @collector = ::Collector.find_by(id: params[:collector_id])
+    @user = User.find_by(id: params[:user_id])
     @manholecover = Manholecover.find(params[:id])
     @manholecover.delete
     respond_to do |format|
-      format.html { redirect_to collector_manholecovers_path, notice: 'Manholecover was successfully destroyed.' }
+      format.html { redirect_to user_manholecovers_path, notice: 'Manholecover was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -138,12 +163,13 @@ class ManholecoversController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_manholecover
-      @collector = ::Collector.find_by(id: params[:user_id])
+      @user = User.find_by(id: params[:user_id])
       @manholecover = Manholecover.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manholecover_params
-      params.require(:manholecover).permit(:id, :manhole_img, :country, :region, :city, :year, :color, :keywords, :notes, :featured, :collector_id, :_method)
+      params.require(:manholecover).permit(:id, :manhole_img, :country, :region, :city, :year, :color, :keywords, :notes, :featured, :user_id, :_method)
     end
+
 end

@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   scope "/admin" do
-    resources :users
+    resources :users do
+      resources :manholecovers
+    end
+    resources :manholecovers
   end
 
   resources :roles
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :manholecovers
 
-  resources :collectors do
+  resources :users do
     resources :manholecovers
   end
 

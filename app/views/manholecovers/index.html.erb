@@ -1,10 +1,10 @@
 <div class="container">
-  <h3>Manhole Covers Collected by <%= @user.name %></h3>
-  <% @manholecovers.each do |manhole_entry| %>
-    <a href="/collectors/<%= manhole_entry.collector_id%>/manholecovers/<%= manhole_entry["id"] %>">
+  <h3>Manhole Covers Collected by <%= @user_name %></h3>
+  <% @manholecovers.each do |manholecover| %>
+    <a href="/collectors/<%= manholecover.collector_id%>/manholecovers/<%= manholecover["id"] %>">
       <ul class="list-of-a-feature">
-        <li><img src="<%= manhole_entry.manhole_img.url(:small) %>"></li>
-        <li><%= manholecover.user.name %></li>
+        <li><img src="<%= manholecover.manhole_img.url(:small) %>"></li>
+        <li><%= User.find_by(id: manholecover.user_id).name %></li>
         <li><%= link_to 'Show', manholecover %></li>
         <li><%= link_to 'Destroy', manholecover, method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <li><%= link_to 'New Manholecover', new_manholecover_path %></li>
