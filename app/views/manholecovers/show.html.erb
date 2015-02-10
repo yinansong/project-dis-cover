@@ -78,9 +78,21 @@
 
       <br>
       <% if @user_id %>
-        <%= link_to 'EDIT', edit_user_manholecover_path(@user, @manholecover), class: "link-button" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'DELETE', user_manholecover_path, method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: "link-button" %>
+        <% if can? :update, @manholecover %>
+          <%= link_to 'EDIT', edit_user_manholecover_path(@user, @manholecover), class: "link-button" %>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <% if can? :destroy, @manholecover %>
+          <%= link_to 'DELETE', user_manholecover_path, method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: "link-button" %>
+        <% end %>
       <% else %>
-        <%= link_to 'EDIT', edit_manholecover_path(@manholecover), class: "link-button" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'DELETE', manholecover_path, method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: "link-button" %>
+        <% if can? :update, @manholecover %>
+          <%= link_to 'EDIT', edit_manholecover_path(@manholecover), class: "link-button" %>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <% if can? :destroy, @manholecover %>
+          <%= link_to 'DELETE', manholecover_path, method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: "link-button" %>
+        <% end %>
       <% end %>
     </div>
   </div>

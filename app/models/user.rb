@@ -16,4 +16,12 @@ class User < ActiveRecord::Base
   def admin?
     self.role.name == "Admin"
   end
+
+  def seller?
+    self.role.name == "Seller"
+  end
+
+  def regular?
+    self.role.name == "Regular"
+  end
 end

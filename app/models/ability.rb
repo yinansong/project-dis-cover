@@ -5,8 +5,17 @@ class Ability
     user ||= User.new # Guest user
     if user.admin?
       can :manage, :all
-    else
-      can :read, :all
+    elsif user.seller?
+      can :read, Manholecover
+      can :create, Manholecover
+      can :update, Manholecover do |manholecover|
+        manholecover.try(:user) == user
+      end
+      can :destroy, Manholecover do |manholecover|
+        manholecover.try(:user) == user
+      end
+    elsif user.regular?
+      can :read, Manholecover
     end
     # Define abilities for the passed in user here. For example:
     #

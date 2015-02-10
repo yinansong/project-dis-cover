@@ -6,8 +6,21 @@
         <li><img src="<%= manholecover.manhole_img.url(:small) %>"></li>
         <li><%= User.find_by(id: manholecover.user_id).name %></li>
         <li><%= link_to 'Show', manholecover %></li>
-        <li><%= link_to 'Destroy', manholecover, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-        <li><%= link_to 'New Manholecover', new_manholecover_path %></li>
+        <li>
+          <% if can? :update, manholecover %>
+            <%= link_to 'Edit', manholecover %>
+          <% end %>
+        </li>
+        <li>
+          <% if can? :destroy, manholecover %>
+            <%= link_to 'Destroy', manholecover, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </li>
+        <li>
+          <% if can? :create, manholecover %>
+            <%= link_to 'New Manholecover', new_manholecover_path %>
+          <% end %>
+        </li>
       </ul>
     </a>
   <% end %>
