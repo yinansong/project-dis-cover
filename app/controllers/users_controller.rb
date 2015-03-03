@@ -48,24 +48,19 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if user_params[:password].blank?
-      user_params.delete(:password)
-      user_params.delete(:password_confirmation)
-    end
-    successfully_updated = if needs_password?(@user, user_params)
-                           @user.update(user_params)
-                         else
-                           @user.update_without_password(user_params)
-                         end
-    respond_to do |format|
-      if successfully_updated
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :no_content }
-      else
-        format.html { render action 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    # if user_params[:password].blank?
+    #   Rails.logger.info "entered if statement"
+    #   user_params.delete :password
+    #   user_params.delete :password_confirmation
+    #   Rails.logger.info(user_params.inspect)
+    # end
+    # @user = current_user
+    # if @user.update(user_params)
+    #   redirect_to @user, notice: 'User was successfully updated.'
+    # else
+    #   Rails.logger.info(@user.errors.inspect)
+    #   render action: 'edit'
+    # end
   end
 
   # DELETE /users/1
@@ -78,11 +73,6 @@ class UsersController < ApplicationController
     end
   end
 
-  protected
-    def needs_password?(user, params)
-      params[:password].present?
-    end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     # def set_user
@@ -91,6 +81,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name, :role_id)
+      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :name, :role_id)
     end
 end
