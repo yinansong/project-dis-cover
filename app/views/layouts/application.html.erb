@@ -51,8 +51,16 @@
               <li><a id="blog_tb_text" href="/instagram">INSTAGRAM</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li></li>
-              <li><%= link_to 'SIGNUP', signup_path %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to current_user.name.upcase, edit_user_registration_path %></li>
+                <li><%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %></li>
+              <% else %>
+                <li><%= link_to "SIGN IN", new_user_session_path %></li>
+              <% end %>
+
+              <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, id: "flash_#{name}" %>
+              <% end %>
             </ul>
         </div>
     </div>
@@ -60,18 +68,6 @@
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-  <% if user_signed_in? %>
-  Signed in as <%= current_user.email %>. Not you?
-  <%= link_to "Edit profile", edit_user_registration_path %>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <% end %>
 
   <%= yield %>
 

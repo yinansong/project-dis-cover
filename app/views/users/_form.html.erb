@@ -1,26 +1,31 @@
-<%= form_for(@user) do |f| %>
+<div class="row">
+  <div class="col-xs-1 col-sm-1 col-lg-1"></div>
+  <div class="col-xs-10 col-sm-10 col-lg-10">
+    <%= form_for(@user) do |f| %>
 
-  <div class="form-inputs">
-    <%= f.label :role %><br>
-    <%= collection_select(:user, :role_id, Role.all, :id, :name, {prompt: true})%>
-  </div>
+      <div class="form-inputs">
+        <%= f.label :role %><br>
+        <%= collection_select(:user, :role_id, Role.all, :id, :name, {prompt: true})%>
+      </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, :class => "form_input" %>
-  </div>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, :class => "form_input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
+      <div class="field">
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password, placeholder: "Leave blank if unchanged" %>
-  </div>
+      <div class="field">
+        <%= f.label :password %><br>
+        <%= f.password_field :password, placeholder: "Leave blank if unchanged" %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

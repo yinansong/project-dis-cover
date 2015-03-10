@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     user ||= User.new # Guest user
     user.assign_role
-    # binding.pry
+    # binding.pry3
 
     if user.admin?
       can :manage, :all

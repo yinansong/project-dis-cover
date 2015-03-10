@@ -1,0 +1,39 @@
+<div class="container">
+
+  <!-- close button -->
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-lg-11"></div>
+    <div class="col-xs-2 col-sm-2 col-lg-1">
+      <%= link_to image_tag("nonmanholes/close.png", :class => "img-responsive close"), root_path%>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-lg-4">
+      <img src="<%= @user.avatar.url(:medium) %>" class="img-circle img-responsive">
+    </div>
+    <div class="col-xs-12 col-sm-8 col-lg-8 user-data">
+      <h3><%= @user.name %></h3>
+      <ul class="user-info">
+        <li>Has collected <%= @no_mhcv %> manhole covers in total, from <%= @no_cities %> cities, <%= @no_countries %> countries.</li>
+        <li>Most are from <a href="/manholecovers/city/<%= @most_city %>"><%= @most_city %></a>.</li>
+        <li>Things that  interest <%= @user.name %> the most is <a href="/manholecovers/keyword/<%= @most_keyword %>">#<%= @most_keyword %></a></li>
+        <li>Member since <%= @user.created_at.strftime("%B %Y") %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row"><hr class="divider"></div>
+
+  <div class="row"></div>
+    <div class="col-xs-12 col-sm-12 col-lg-12">
+      <% @manholecovers.each_with_index do |manhole_entry| %>
+        <a href="/users/<%= manhole_entry.user_id %>/manholecovers/<%= manhole_entry.id %>">
+          <ul class="list-of-a-feature">
+            <li><img src="<%= manhole_entry.manhole_img.url(:small) %>"></li>
+          </ul>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</div>
