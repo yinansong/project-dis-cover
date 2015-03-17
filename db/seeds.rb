@@ -13,44 +13,44 @@ m1 = Manholecover.create(
   city: "Xinxiang",
   year: "2001",
   color: "black",
-  keywords: ["animal", "frog", "traditional"],
-  notes: "From a historical site in my hometown",
+  keywords: ["1", "2", "3"],
+  notes: "I was born near this!",
   featured: true,
   user_id: u2.id
 )
 
 m2 = Manholecover.create(
   country: "China",
-  region: "Henan",
-  city: "Xinxiang",
+  region: "Sichuan",
+  city: "Chengdu",
   year: "2002",
-  color: "black",
-  keywords: ["animal", "frog", "traditional"],
-  notes: "From a historical site in my hometown",
+  color: "white",
+  keywords: ["1", "2", "3"],
+  notes: "Growing up",
   featured: true,
   user_id: u2.id
 )
 
 m3 = Manholecover.create(
-  country: "China",
-  region: "Henan",
-  city: "Xinxiang",
+  country: "USA",
+  region: "Connecticut",
+  city: "New Haven",
   year: "2003",
-  color: "black",
-  keywords: ["animal", "frog", "traditional"],
-  notes: "From a historical site in my hometown",
+  color: "yellow",
+  keywords: ["4", "5", "6"],
+  notes: "Good morning New Haven",
   featured: true,
   user_id: u3.id
 )
 
 m4 = Manholecover.create(
-  country: "China",
-  region: "Henan",
-  city: "Xinxiang",
+  country: "USA",
+  region: "New York",
+  city: "New York City",
   year: "2004",
-  color: "black",
-  keywords: ["animal", "frog", "traditional"],
-  notes: "From a historical site in my hometown",
+  color: "green",
+  keywords: ["7", "8", "9"],
+  notes: "New Chapter in life",
   featured: false,
   user_id: u4.id
 )

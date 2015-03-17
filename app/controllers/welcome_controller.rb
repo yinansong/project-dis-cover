@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @manholecovers = Manholecover.all
-    @sample_mhcv = @manholecovers.sample(20)
+    @sample_mhcv = @manholecovers.sample(3)
 
     #for the data in the summary line
     @cities = @manholecovers.map do |manhole_entry|

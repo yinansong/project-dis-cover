@@ -28,9 +28,7 @@
               <p class="meta_text">Collector:&nbsp;</p>
             </td>
             <td class="meta_content">
-              <a href="/users/<%= @user.id %>/collection">
-                <%= @manholecover.user.name %>
-              </a>
+              <%= link_to @manholecover.user.name, collection_user_path %>
             </td>
           </tr>
           <tr>

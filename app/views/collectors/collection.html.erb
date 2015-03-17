@@ -28,7 +28,7 @@
   <div class="row"></div>
     <div class="col-xs-12 col-sm-12 col-lg-12">
       <% @manholecovers.each_with_index do |manhole_entry| %>
-        <a href="/collectors/<%= manhole_entry.collector_id %>/manholecovers/<%= manhole_entry.id %>">
+        <a href="/collectors/<%= manhole_entry.user_id %>/manholecovers/<%= manhole_entry.id %>">
           <ul class="list-of-a-feature">
             <li><img src="<%= manhole_entry.manhole_img.url(:small) %>"></li>
           </ul>

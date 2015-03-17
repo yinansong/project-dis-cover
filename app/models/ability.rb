@@ -4,12 +4,11 @@ class Ability
   def initialize(user)
     user ||= User.new # Guest user
     user.assign_role
-    # binding.pry3
 
     if user.admin?
       can :manage, :all
     elsif user.seller?
-      can :read, Manholecover
+      can :read, :all
       can :create, Manholecover
       can :update, Manholecover do |manholecover|
         manholecover.try(:user) == user
@@ -18,7 +17,9 @@ class Ability
         manholecover.try(:user) == user
       end
     elsif user.regular?
-      can :read, Manholecover
+      can :read, :all
+    else
+      can :read, :all
     end
 
     # Define abilities for the passed in user here. For example:

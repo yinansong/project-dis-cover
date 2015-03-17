@@ -1,7 +1,8 @@
 class ManholecoversController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
-  load_and_authorize_resource
-  # before_action :set_manholecover, only: [:show, :edit, :update, :destroy]
+  # before_filter :authenticate_user!, :except => [:show, :index, :city, :country, :region, :year, :keywords]
+  # before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
+  # load_and_authorize_resource
+  before_action :set_manholecover, only: [:show, :edit, :update, :destroy]
 
   # GET /users/1/manholecovers
   # GET /users/1/manholecovers.json
@@ -45,10 +46,12 @@ class ManholecoversController < ApplicationController
     else
       @manholecover = Manholecover.find(params[:id])
     end
+    authorize! :update, @manholecover
   end
 
   # GET /manholecovers/city/:city
   def city
+    binding.pry
     @city = params[:city].downcase
     @manholecovers = Manholecover.all
     @certain_city_array = @manholecovers.select do |manhole_entry|
@@ -100,6 +103,7 @@ class ManholecoversController < ApplicationController
     # @manholecover = Manholecover.new(manholecover_params)
     @manholecover.keywords = params[:manholecover][:keywords].downcase.split(", ")
     @manholecover.user_id = @user.id
+    authorize! :create, @manho
     respond_to do |format|
       if @manholecover.save
         format.html { redirect_to user_manholecovers_path, notice: 'Manholecover was successfully created.' }
@@ -146,6 +150,7 @@ class ManholecoversController < ApplicationController
         end
       end
     end
+    authorize! :update, @manholecover
   end
 
   # DELETE users/1/manholecovers/1
@@ -153,6 +158,7 @@ class ManholecoversController < ApplicationController
   def destroy
     @user = User.find_by(id: params[:user_id])
     @manholecover = Manholecover.find(params[:id])
+    authorize! :destroy, @manholecover
     @manholecover.delete
     respond_to do |format|
       format.html { redirect_to user_manholecovers_path, notice: 'Manholecover was successfully destroyed.' }

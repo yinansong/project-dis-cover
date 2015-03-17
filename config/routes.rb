@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :roles
 
-  resources :users
+  resources :users, only: [:show]
 
   resources :manholecovers
 
@@ -36,7 +36,10 @@ Rails.application.routes.draw do
 
   get 'users/:id/collection' => 'users#collection', :as => :collection_user
 
-  get 'signup' => 'collectors#new'
+  get 'users/:id' => 'users#show'
+  get 'users' => 'users#index'
+
+  # get 'signup' => 'collectors#new'
 
   # error handling
   match '/404', via: :all, to: 'errors#not_found'

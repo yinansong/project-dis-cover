@@ -1,7 +1,7 @@
 <div class="container">
   <h3>Manhole Covers Collected by <%= @user_name %></h3>
   <% @manholecovers.each do |manholecover| %>
-    <a href="/collectors/<%= manholecover.collector_id%>/manholecovers/<%= manholecover["id"] %>">
+    <a href="/users/<%= manholecover.user_id%>/manholecovers/<%= manholecover["id"] %>">
       <ul class="list-of-a-feature">
         <li><img src="<%= manholecover.manhole_img.url(:small) %>"></li>
         <li><%= User.find_by(id: manholecover.user_id).name %></li>

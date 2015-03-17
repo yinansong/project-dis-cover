@@ -1,7 +1,31 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
-  load_and_authorize_resource
-  # before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_filter :authenticate_user!, only: [:edit, :update, :destroy]
+  # load_and_authorize_resource
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  # GET /users/1/collection
+  def collection
+    # binding.pry
+    @user = User.find_by(id: params[:id])
+    @manholecovers = @user.manholecovers
+    @no_mhcv = @manholecovers.size
+    # calculate the number of citis & countries the user collects manholecovers from
+    @cities = @manholecovers.map do |manholecover|
+      manholecover.city
+    end
+    @no_cities = @cities.uniq.size
+    @countries = @manholecovers.map do |manholecover|
+      manholecover.country
+    end
+    @no_countries = @countries.uniq.size
+    # find the city where the user collects the most manholecovers from
+    @most_city = @cities.group_by do |e|
+      e
+    end.values.max_by(&:size).first
+    # find the keyword that the user uses the most often
+    @all_keywords = @manholecovers.map { |manholecover| manholecover.keywords}.flatten
+    @most_keyword = @all_keywords.group_by {|e| e }.values.max_by(&:size).first
+  end
 
   # GET /users
   # GET /users.json
@@ -81,6 +105,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :name, :role_id)
+      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :name, :avatar, :role_id)
     end
 end
