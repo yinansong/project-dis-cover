@@ -18,7 +18,7 @@
 <div id="container">
   <% @sample_mhcv.each do |manholecover| %>
     <a href="/users/<%= manholecover.user_id %>/manholecovers/<%= manholecover.id %>">
-      <img class="item" id="item<%= manholecover.id %>" src="<%= manholecover.manhole_img.url(:small) %>">
+      <img class="item img-circle" id="item<%= manholecover.id %>" src="<%= manholecover.manhole_img.url(:small) %>">
     </a>
     <div class="meta_box" id="meta_box<%= manholecover.id %>">
       <span class="meta_text">
