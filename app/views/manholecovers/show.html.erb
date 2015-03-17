@@ -10,7 +10,7 @@
 
   <!-- large manhole image  -->
   <div class="row">
-    <div class="col-xs-10 col-sm-9 col-lg-9"><img class="img-responsive big_image" src="<%= @manholecover.manhole_img.url(:large) %>"></div>
+    <div class="col-xs-10 col-sm-9 col-lg-9"><img class="img-responsive big_image img-circle" src="<%= @manholecover.manhole_img.url(:large) %>"></div>
     <div class="col-xs-2 col-sm-3 col-lg-3"></div>
   </div>
 
@@ -99,13 +99,13 @@
 
   <div class="row">
     <div class="col-xs-4 col-sm-4 col-lg-4">
-      <a href="/users/<%= @random_manhole_of_same_color1.user_id %>/manholecovers/<%= @random_manhole_of_same_color1.id %>"><img class="img-responsive small_image similar" src="<%= @random_manhole_of_same_color1.manhole_img.url(:small) %>"></a>
+      <a href="/users/<%= @random_manhole_of_same_color1.user_id %>/manholecovers/<%= @random_manhole_of_same_color1.id %>"><img class="img-responsive img-circle small_image similar" src="<%= @random_manhole_of_same_color1.manhole_img.url(:small) %>"></a>
     </div>
     <div class="col-xs-4 col-sm-4 col-lg-4">
-      <a href="/users/<%= @random_manhole_of_same_color2.user_id %>/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="img-responsive small_image similar" src="<%= @random_manhole_of_same_color2.manhole_img.url(:small) %>"></a>
+      <a href="/users/<%= @random_manhole_of_same_color2.user_id %>/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="img-responsive img-circlesmall_image similar" src="<%= @random_manhole_of_same_color2.manhole_img.url(:small) %>"></a>
     </div>
     <div class="col-xs-4 col-sm-4 col-lg-4">
-      <a href="/users/<%= @random_manhole_of_same_color3.user_id %>/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="img-responsive small_image similar" src="<%= @random_manhole_of_same_color3.manhole_img.url(:small) %>"></a>
+      <a href="/users/<%= @random_manhole_of_same_color3.user_id %>/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="img-responsive img-circle small_image similar" src="<%= @random_manhole_of_same_color3.manhole_img.url(:small) %>"></a>
     </div>
   </div>
 </div>
