@@ -51,7 +51,7 @@ class ManholecoversController < ApplicationController
 
   # GET /manholecovers/city/:city
   def city
-    binding.pry
+    # binding.pry
     @city = params[:city].downcase
     @manholecovers = Manholecover.all
     @certain_city_array = @manholecovers.select do |manhole_entry|
