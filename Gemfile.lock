@@ -52,6 +52,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    ckeditor (4.0.11)
+      mime-types
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.5)
@@ -114,6 +117,15 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.0)
     minitest (5.4.2)
+    monologue (0.4.1)
+      bcrypt (~> 3.1.7)
+      ckeditor (~> 4.0.11)
+      coffee-rails (~> 4.0.0)
+      jquery-rails
+      rails (>= 4.0.4)
+      sass-rails (~> 4.0.0)
+      select2-rails (~> 3.2)
+      truncate_html
     multi_json (1.10.1)
     multi_test (0.1.1)
     multi_xml (0.5.5)
@@ -186,6 +198,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    select2-rails (3.5.9.3)
+      thor (~> 0.14)
     shotgun (0.9)
       rack (>= 1.0)
     shoulda-matchers (2.7.0)
@@ -204,6 +218,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    truncate_html (0.9.3)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -237,6 +252,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   launchy (~> 2.4.2)
+  monologue
   newrelic_rpm
   paperclip
   pg

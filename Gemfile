@@ -51,6 +51,8 @@ gem 'devise'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'monologue'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
