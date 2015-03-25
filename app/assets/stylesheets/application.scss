@@ -498,3 +498,12 @@ input[type=submit]:hover {
 
 // Monologue/blog
 
+.tag {
+  text-decoration: underline;
+  padding: 0 5px 0 0;
+}
+
+.button {
+  font-family: $Hammersmith-One;
+  text-transform: uppercase;
+}
