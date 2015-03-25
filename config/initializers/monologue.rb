@@ -10,7 +10,7 @@ Monologue.config do |config|
   config.admin_force_ssl = false
   config.posts_per_page = 10
 
-  config.disqus_shortname = "project-dis-cover-blog"
+  config.disqus_shortname = "project-discover"
   # COME-BACK NOTE: this needs to be changed!!!
 
   # LOCALE
