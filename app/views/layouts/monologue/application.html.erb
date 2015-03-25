@@ -29,7 +29,7 @@
 
 </head>
 
-<body onload='setDivPos();'>
+<body>
 
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -51,73 +51,22 @@
               <li><a href="/blog">BLOG</a></li>
               <li><a id="blog_tb_text" href="/instagram">INSTAGRAM</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <% if user_signed_in? %>
-                <li><%= link_to current_user.name.upcase, edit_user_registration_path %></li>
-                <li><%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %></li>
-              <% else %>
-                <li><%= link_to "SIGN IN", new_user_session_path %></li>
-              <% end %>
-
-              <% flash.each do |name, msg| %>
-                <%= content_tag :div, msg, id: "flash_#{name}" %>
-              <% end %>
-            </ul>
         </div>
     </div>
   </nav>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <%= yield %>
+  <div class="container">
+    <!-- close button -->
+    <div class="row">
+      <div class="col-xs-10 col-sm-10 col-lg-11"></div>
+      <div class="col-xs-2 col-sm-2 col-lg-1">
+        <%= link_to image_tag("nonmanholes/close.png", :class => "img-responsive close"), root_path %>
+      </div>
+    </div>
+    <%= yield %>
+  </div>
 
   <%= javascript_include_tag 'application' %>
 
-  <script>
-    function setDivPos() {
-    var conW = $( window ).width() - 100,
-        conH = $( window ).height() - 100
-    $('#container').css( "width", conW );
-    $('#container').css( "height", conH );
-
-    $('.item').each(function(idx, el){
-      var x = Math.floor( Math.random() * $( window ).width() ) - 150;
-      var y = Math.floor( Math.random() * $( window ).height() ) - 100;
-      console.log(el);
-      el.style.left = x + 'px';
-      el.style.top = y + 'px';
-    });
-  }
-
-    // $(".meta_box").hide();
-
-    $(".item").mouseover(function(event) {
-      var index = parseInt( event.target.id.match(/\d+/), 10 );
-      $(".item" + index).css;
-      $(".meta_box").hide();
-      $("#meta_box" + index).show();
-    });
-
-    $(".item").mouseout(function(event) {
-      $(".meta_box").hide();
-    });
-  </script>
-
-  <script>
-    var j = 0;
-    var delay = 2000; //millisecond delay between cycles
-    function cycleThru(){
-      var jmax = $("ul#stats-machine li").length -1;
-      $("ul#stats-machine li:eq(" + j + ")")
-             .animate({"opacity" : "1"} ,400)
-             .animate({"opacity" : "1"}, delay)
-             .animate({"opacity" : "0"}, 400, function(){
-                     (j == jmax) ? j=0 : j++;
-                     cycleThru();
-             });
-    };
-    cycleThru();
-  </script>
 </body>
 </html>
