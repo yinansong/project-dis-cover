@@ -5,13 +5,12 @@ Monologue.config do |config|
   # COME-BACK NOTE: this needs to be changed!!!
 
   config.meta_description = "This is a blog about Project DisCover and its manholecovers."
-  config.meta_keyword = "music, fun"
+  config.meta_keyword = "manhole, manholecover, sewer, sewercover, drain, draincover, travel, collector"
 
   config.admin_force_ssl = false
   config.posts_per_page = 10
 
   config.disqus_shortname = "project-discover"
-  # COME-BACK NOTE: this needs to be changed!!!
 
   # LOCALE
   config.twitter_locale = "en" # "fr"
