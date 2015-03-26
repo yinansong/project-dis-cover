@@ -25,7 +25,7 @@ Monologue.config do |config|
   # config.google_analytics_id = "YOUR GA CODE"
   # COME-BACK NOTE: this needs to be changed!!!
 
-  config.sidebar = ["latest_posts", "latest_tweets", "categories", "tag_cloud"]
+  config.sidebar = ["latest_posts", "categories", "tag_cloud"]
 
 
   #SOCIAL

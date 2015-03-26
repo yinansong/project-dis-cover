@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <html>
 <head>
   <title>ProjectDisCover</title>
@@ -26,7 +30,6 @@
   <!-- javascript and jquery -->
   <script src="/assets/pace.min.js"></script>
   <link href="/assets/pace_style.css" rel="stylesheet" />
-
 </head>
 
 <body>
@@ -63,8 +66,15 @@
         <%= link_to image_tag("nonmanholes/close.png", :class => "img-responsive close"), root_path %>
       </div>
     </div>
-    <%= yield %>
+    <div><%= render partial: "layouts/monologue/application/social_icons" %></div>
+    <div class="row">
+      <div class="col-xs-7 col-sm-7 col-lg-8"><%= yield %></div>
+      <div class="col-xs-5 col-sm-5 col-lg-4 sidebar"><%= render 'layouts/monologue/application/sidebar' %></div>
+    </div>
   </div>
+
+  <%= render 'layouts/monologue/application/disqus' %>
+  <%= render 'layouts/monologue/application/gauge_analytics' %>
 
   <%= javascript_include_tag 'application' %>
 
