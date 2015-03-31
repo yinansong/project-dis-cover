@@ -500,7 +500,7 @@ input[type=submit]:hover {
 
 .tag {
   text-decoration: underline;
-  padding: 0 5px 0 0;
+  margin: 0 5px 0 0;
 }
 
 .button {
@@ -517,5 +517,18 @@ input[type=submit]:hover {
 }
 
 section span {
-  margin: 0 8px 0 0;
+  margin: 0 15px 0 0;
+}
+
+div.posted span {
+  margin: 0 15px 0 0;
+}
+
+.label-size-1 {
+  text-decoration: underline;
+  margin: 0 5px 0 0;
+}
+
+a.button {
+  line-height: 3;
 }
