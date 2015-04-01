@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   belongs_to :role
 
   has_attached_file :avatar,
-    :styles => {:thumb => '50x50>', :medium => '200x200>'},
+    :styles => { :thumb => '50x50>', :medium => '200x200>', :large => "500x500>" },
     :default_url => ':style/missing.jpg',
     :storage => :s3,
     :bucket => ENV['S3_BUCKET_NAME'],

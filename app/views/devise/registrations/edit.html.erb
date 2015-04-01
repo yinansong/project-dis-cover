@@ -20,6 +20,7 @@
 
     <div class="field">
       <%= f.label :avatar %><br />
+      <div><img src="<%= current_user.avatar %>" class="img-circle" style="width:100px"></div>
       <%= f.file_field :avatar %>
     </div>
 
