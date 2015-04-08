@@ -20,7 +20,7 @@
 
     <div class="field">
       <%= f.label :avatar %><br />
-      <div><img src="<%= current_user.avatar %>" class="img-circle" style="width:100px"></div>
+      <div><img src="<%= current_user.avatar.url(:medium) %>" class="img-circle" style="width:100px"></div>
       <%= f.file_field :avatar %>
     </div>
 
@@ -43,8 +43,8 @@
       <%= f.submit "Update" %>
     </div>
 
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
   <% end %>
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 
   <%= link_to "Back", :back %>
 </div>

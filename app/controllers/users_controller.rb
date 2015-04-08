@@ -72,6 +72,16 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    # binding.pry
+    @user.crop_x = params[:user][:crop_x]
+    @user.crop_y = params[:user][:crop_y]
+    @user.crop_w = params[:user][:crop_w]
+    @user.crop_h = params[:user][:crop_h]
+    if !params[:user][:crop_x].blank? && !params[:user][:crop_y].blank? && !params[:user][:crop_w].blank? && !params[:user][:crop_h].blank?
+      binding.pry
+      @user.avatar.reprocess!
+      @user.avatar.save
+    end
     # if user_params[:password].blank?
     #   Rails.logger.info "entered if statement"
     #   user_params.delete :password
@@ -99,12 +109,12 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    # def set_user
-    #   @user = User.find(params[:id])
-    # end
+    def set_user
+      @user = User.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :name, :avatar, :role_id)
+      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :name, :avatar, :role_id, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end

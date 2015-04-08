@@ -21,11 +21,14 @@
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'jquery-1.11.2.min' %>
 
   <!-- javascript and jquery -->
   <script src="/assets/pace.min.js"></script>
   <link href="/assets/pace_style.css" rel="stylesheet" />
+
+  <%= yield(:head) %>
 
 </head>
 

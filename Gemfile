@@ -53,6 +53,8 @@ gem 'cancancan', '~> 1.10'
 
 gem 'monologue'
 
+gem 'jcrop-rails-v2', '~> 0.9.12.3'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -10,3 +10,9 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( monologue/foundation_icons/social_foundicons.eot )
 Rails.application.config.assets.precompile += %w( monologue/foundation_icons/social_foundicons.woff )
 Rails.application.config.assets.precompile += %w( monologue/foundation_icons/social_foundicons.ttf )
+
+Rails.application.config.assets.precompile += %w( jquery.Jcrop.css )
+Rails.application.config.assets.precompile += %w( jquery.Jcrop.min.js )
+
+Rails.application.config.assets.precompile += %w( jquery.Jcrop.js )
+Rails.application.config.assets.precompile += %w( jquery-1.11.2.min.js )

@@ -18,7 +18,36 @@ class RegistrationsController < Devise::RegistrationsController
         set_flash_message :notice, :updated
         # Sign in the user bypassing validation in case his password changed
         sign_in @user, :bypass => true
-        redirect_to after_update_path_for(@user)
+        if @user.avatar_file_name.nil?
+          redirect_to :back
+        elsif !params[:user][:crop_x].blank?
+          # binding.pry
+          @user.avatar.reprocess!
+          redirect_to edit_user_path(@user) and return
+        else
+          render :action => 'crop'
+        end
+        # if params[:user][:avatar].blank?
+        #   redirect_to after_update_path_for(@user)
+        # elsif @user.cropping?
+        #   @user.avatar.reprocess!
+        # else
+        #   render :action => 'crop'
+        #   binding.pry
+        # end
+
+        # else
+        #   render :action => "crop"
+        #   if @user.cropping?
+        #     @user.avatar.reprocess!
+        #   end
+
+        # elsif !params[:user][:crop_x].blank?
+        #   @user.avatar.reprocess!
+        #   redirect_to edit_user_path(@user) and return
+        # else
+        #   render :action => 'crop'
+        # end
       else
         render "edit"
       end
